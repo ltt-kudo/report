@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lộ Trình & Đối Thủ Cạnh Tranh | VA Schools</title>
+    
+    <!-- Thư viện -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:wght@400;700&family=Reddit+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --primary: #9a0036; --bg: #fdfbf7; }
+        body { font-family: 'Reddit Sans', sans-serif; background: var(--bg); color: #374151; }
+        h1, h2, h3, .serif { font-family: 'Platypi', serif; }
+        
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(154, 0, 54, 0.1); transition: all 0.3s; }
+        
+        /* Table Styles */
+        .roadmap-table th { background-color: #f3f4f6; color: #374151; font-weight: bold; text-align: center; padding: 12px; border: 1px solid #e5e7eb; }
+        .roadmap-table td { padding: 10px; border: 1px solid #e5e7eb; text-align: center; vertical-align: middle; }
+        .roadmap-table .text-left { text-align: left; }
+        .roadmap-table tr:hover { background-color: #fff1f2; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center text-gray-600 hover:text-[#9a0036] font-bold transition group">
+                <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i> Quay lại Dashboard
+            </a>
+            <div class="flex items-center gap-3">
+                 <span class="bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-1 rounded border border-purple-200 uppercase">Phân Tích Chiến Lược</span>
+                 <h1 class="text-lg font-bold text-[#9a0036] serif">Lộ Trình & Đối Thủ Cạnh Tranh</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 py-8 pb-20 space-y-12">
+        
+        <!-- SECTION 1: COMPETITOR ANALYSIS -->
+        <section>
+            <div class="flex items-center mb-6">
+                <span class="w-1.5 h-8 bg-[#9a0036] mr-4 rounded-full"></span>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 serif">1. Ma Trận Cạnh Tranh (Học Phí)</h2>
+                    <p class="text-sm text-gray-500">So sánh mức học phí niêm yết năm học 2025-2026 với các đối thủ cùng phân khúc.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Insight Card -->
+                <div class="lg:col-span-1 space-y-4">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#9a0036] card-hover">
+                        <h3 class="font-bold text-[#9a0036] mb-2"><i class="fas fa-crosshairs mr-2"></i>VA Schools (PA3)</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between"><span>Tiểu học:</span> <strong>~104 Tr</strong></div>
+                            <div class="flex justify-between"><span>THCS:</span> <strong>~139 Tr</strong></div>
+                            <div class="flex justify-between"><span>THPT:</span> <strong>~177 Tr</strong></div>
+                        </div>
+                        <div class="mt-3 text-xs bg-rose-50 text-rose-700 p-2 rounded font-bold text-center">
+                            CAM KẾT KHÔNG TĂNG 5 NĂM
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-500 card-hover">
+                        <h3 class="font-bold text-blue-700 mb-2"><i class="fas fa-user-friends mr-2"></i>Vinschool (Trực tiếp)</h3>
+                        <p class="text-xs text-gray-500 mb-2">Đối thủ cạnh tranh gay gắt nhất về phân khúc giá.</p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between"><span>Tiểu học:</span> <strong>~102 Tr</strong></div>
+                            <div class="flex justify-between"><span>THPT:</span> <strong>~207 Tr</strong></div>
+                        </div>
+                        <div class="mt-3 text-xs bg-blue-50 text-blue-700 p-2 rounded text-center">
+                            Tăng phí đều đặn hàng năm
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-amber-500 card-hover">
+                        <h3 class="font-bold text-amber-700 mb-2"><i class="fas fa-crown mr-2"></i>Phân Khúc Cao Hơn</h3>
+                        <ul class="text-xs text-gray-600 space-y-1 list-disc ml-4">
+                            <li><strong>Á Châu (Asian):</strong> Cao hơn VA ~40-50%.</li>
+                            <li><strong>Royal School:</strong> Cao hơn VA ~30%.</li>
+                            <li><strong>VAS:</strong> Cao hơn VA >100% (Gấp đôi).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                    <h3 class="font-bold text-gray-800 mb-4 text-center serif">So Sánh Học Phí Các Hệ Thống (Đơn vị: Triệu VNĐ)</h3>
+                    <div class="h-[350px]">
+                        <canvas id="competitorChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ROADMAP 2030 -->
+        <section>
+            <div class="flex items-center mb-6">
+                <span class="w-1.5 h-8 bg-purple-600 mr-4 rounded-full"></span>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 serif">2. Lộ Trình Lấp Đầy (Fill Rate) 2026 - 2030</h2>
+                    <p class="text-sm text-gray-500">Mục tiêu đạt 100% công suất tại các cơ sở trọng điểm vào năm 2030.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="p-6 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+                    <h3 class="font-bold text-gray-700"><i class="fas fa-map-marked-alt mr-2"></i> Kế Hoạch Tăng Trưởng Tỷ Lệ Lấp Đầy</h3>
+                    <div class="flex gap-2">
+                        <span class="text-xs flex items-center"><span class="w-3 h-3 bg-red-100 border border-red-300 mr-1"></span> &lt;50%</span>
+                        <span class="text-xs flex items-center"><span class="w-3 h-3 bg-yellow-100 border border-yellow-300 mr-1"></span> 50-80%</span>
+                        <span class="text-xs flex items-center"><span class="w-3 h-3 bg-green-100 border border-green-300 mr-1"></span> &gt;80%</span>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full roadmap-table text-sm">
+                        <thead>
+                            <tr>
+                                <th class="text-left w-48">Cơ sở / Cấp học</th>
+                                <th>26-27</th>
+                                <th>27-28</th>
+                                <th>28-29</th>
+                                <th>29-30</th>
+                                <th class="bg-purple-50 text-purple-800 border-purple-200">30-31</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- VA BÌNH THỚI -->
+                            <tr class="bg-gray-50 font-bold"><td colspan="6" class="text-left text-[#9a0036]">1. VA Bình Thới</td></tr>
+                            <tr><td class="text-left pl-6">Tiểu học</td>
+                                <td class="bg-yellow-50">75%</td><td class="bg-green-50">81%</td><td class="bg-green-50">88%</td><td class="bg-green-100 font-bold">95%</td><td class="bg-purple-100 font-bold">100%</td></tr>
+                            <tr><td class="text-left pl-6">THCS</td>
+                                <td class="bg-yellow-50">67%</td><td class="bg-yellow-50">75%</td><td class="bg-green-50">84%</td><td class="bg-green-100 font-bold">94%</td><td class="bg-purple-100 font-bold">100%</td></tr>
+                            <tr><td class="text-left pl-6">THPT</td>
+                                <td class="bg-yellow-50">56%</td><td class="bg-yellow-50">65%</td><td class="bg-yellow-50">78%</td><td class="bg-green-100 font-bold">95%</td><td class="bg-purple-100 font-bold">100%</td></tr>
+
+                            <!-- VA TÂN BÌNH -->
+                            <tr class="bg-gray-50 font-bold"><td colspan="6" class="text-left text-[#9a0036]">2. VA Tân Bình</td></tr>
+                            <tr><td class="text-left pl-6">Tiểu học</td>
+                                <td class="bg-yellow-50">65%</td><td class="bg-yellow-50">72%</td><td class="bg-green-50">84%</td><td class="bg-green-100 font-bold">94%</td><td class="bg-purple-100 font-bold">100%</td></tr>
+                            
+                            <!-- CÁC CƠ SỞ MỚI -->
+                            <tr class="bg-gray-50 font-bold"><td colspan="6" class="text-left text-[#9a0036]">3. Nhóm Cơ Sở Phát Triển (Phú Định, Hạnh Thông...)</td></tr>
+                            <tr><td class="text-left pl-6">Mầm non</td>
+                                <td class="bg-red-50 text-red-600 font-bold">20%</td><td class="bg-red-50">29%</td><td class="bg-yellow-50">47%</td><td class="bg-yellow-50">74%</td><td class="bg-purple-100 font-bold">100%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // COMPETITOR CHART
+            const ctxComp = document.getElementById('competitorChart').getContext('2d');
+            
+            // Dữ liệu từ file CSV "Đối thủ.csv"
+            const dataCompetitors = {
+                labels: ['Mầm non', 'Tiểu học', 'THCS', 'THPT'],
+                datasets: [
+                    {
+                        label: 'VA Schools (PA3 - Đề xuất)',
+                        data: [84.7, 104.1, 138.9, 176.9],
+                        backgroundColor: '#9a0036',
+                        borderColor: '#9a0036',
+                        borderWidth: 2,
+                        type: 'line',
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        fill: false,
+                        tension: 0.1,
+                        order: 0
+                    },
+                    {
+                        label: 'Vinschool',
+                        data: [102.7, 102.7, 135.0, 207.1], // Approx data
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                        borderRadius: 4,
+                        order: 1
+                    },
+                    {
+                        label: 'Asian School (Á Châu)',
+                        data: [null, 155.5, 185.0, 237.6], // No Kindergarten
+                        backgroundColor: 'rgba(245, 158, 11, 0.7)',
+                        borderRadius: 4,
+                        order: 2
+                    },
+                    {
+                        label: 'Royal School',
+                        data: [135.0, 150.0, 180.0, 230.0],
+                        backgroundColor: 'rgba(16, 185, 129, 0.7)',
+                        borderRadius: 4,
+                        order: 3
+                    }
+                ]
+            };
+
+            new Chart(ctxComp, {
+                type: 'bar',
+                data: dataCompetitors,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw + ' Tr';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Học phí / Năm (Triệu VNĐ)' }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

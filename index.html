@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VA Schools | Dashboard Chiến Lược 2026-2030 (v7.3)</title>
+    
+    <!-- Thư viện -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:wght@400;700&family=Reddit+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --primary: #9a0036; --bg: #fdfbf7; }
+        body { font-family: 'Reddit Sans', sans-serif; background: var(--bg); color: #374151; }
+        h1, h2, h3, .serif { font-family: 'Platypi', serif; }
+        
+        /* Animation Landing Page */
+        #landing {
+            background: radial-gradient(circle at center, #fff0f5 0%, #fdfbf7 100%);
+            transition: opacity 0.6s ease-out, visibility 0.6s;
+        }
+        .landing-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        
+        @keyframes pulse-custom {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(154, 0, 54, 0.1)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 15px rgba(154, 0, 54, 0.3)); }
+        }
+        .logo-pulse { animation: pulse-custom 3s infinite; }
+
+        /* Animation Content */
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9a0036; }
+        
+        .tab-btn.active { border-bottom-color: #9a0036; color: #9a0036; font-weight: bold; }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- LANDING PAGE -->
+    <div id="landing" class="fixed inset-0 z-50 flex flex-col items-center justify-center h-screen w-screen">
+        <div class="text-center">
+            <img src="https://lh3.googleusercontent.com/d/18tEtZa5JwxNJXH2g_Dp9FLFnTHewhSW6" class="w-48 md:w-64 mx-auto mb-8 logo-pulse" alt="VA Logo">
+            <h1 class="text-3xl md:text-5xl font-bold text-[#9a0036] mb-4 tracking-tight leading-tight">
+                ĐỀ ÁN CHIẾN LƯỢC TUYỂN SINH<br>GIAI ĐOẠN 2026 - 2030
+            </h1>
+            <h2 class="text-lg md:text-xl text-gray-500 mb-10 tracking-[0.2em] uppercase">
+                BAN CHÍNH SÁCH - HỆ THỐNG TRƯỜNG VIỆT MỸ
+            </h2>
+            <button onclick="enterApp()" class="group relative px-10 py-4 bg-[#9a0036] text-white rounded-full font-bold text-lg shadow-xl hover:bg-white hover:text-[#9a0036] border-2 border-[#9a0036] transition-all duration-300 transform hover:-translate-y-1">
+                <span class="flex items-center"><i class="fas fa-book-open mr-3"></i> TRUY CẬP ĐỀ ÁN</span>
+            </button>
+            <p class="mt-12 text-xs text-gray-400 italic">Hệ thống quản trị chiến lược nội bộ (v7.3)</p>
+        </div>
+    </div>
+
+    <!-- MAIN APP -->
+    <div id="app-content" class="opacity-0 transition-opacity duration-1000">
+        <header class="bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <img src="https://lh3.googleusercontent.com/d/18tEtZa5JwxNJXH2g_Dp9FLFnTHewhSW6" class="h-10 w-auto" alt="VA Logo">
+                    <h1 class="text-lg font-bold text-[#9a0036] uppercase tracking-wide hidden md:block border-l-2 border-gray-300 pl-4 ml-1">Chiến Lược 2026-2030</h1>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200 flex items-center"><i class="fas fa-check-circle mr-1"></i> Bản Chính Thức (v7.3)</span>
+                    <button class="p-2 hover:bg-gray-100 rounded-full text-gray-500"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-4 py-8 pb-20 space-y-10">
+            <!-- SECTION 1: CORE STRATEGY -->
+            <section class="fade-in-up bg-white rounded-2xl shadow-lg border border-rose-100 p-8 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-rose-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -mr-16 -mt-16 pointer-events-none"></div>
+                <div class="relative z-10 text-center mb-10">
+                    <div class="inline-flex items-center space-x-2 bg-rose-100 text-[#9a0036] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">
+                        <i class="fas fa-star"></i> <span>Chiến Lược Trọng Tâm</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 serif">Kiểm Soát Tỷ Lệ Drop Rate</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto text-lg italic">"Ưu tiên nguồn lực để chăm sóc và giữ chân học sinh hiện hữu, chuyển dịch mô hình từ tăng trưởng nóng sang tăng trưởng bền vững."</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                    <div class="bg-amber-50 rounded-xl p-4 text-center border border-amber-100">
+                        <div class="text-[10px] font-bold uppercase text-amber-800 mb-1">Mầm non</div>
+                        <div class="text-2xl font-bold text-amber-600 serif">Max 15%</div>
+                    </div>
+                    <div class="bg-emerald-50 rounded-xl p-4 text-center border border-emerald-100">
+                        <div class="text-[10px] font-bold uppercase text-emerald-800 mb-1">Tiểu học</div>
+                        <div class="text-2xl font-bold text-emerald-600 serif">5% - 10%</div>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-4 text-center border border-blue-100">
+                        <div class="text-[10px] font-bold uppercase text-blue-800 mb-1">THCS</div>
+                        <div class="text-2xl font-bold text-blue-600 serif">~ 10%</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 text-center border border-gray-200">
+                        <div class="text-[10px] font-bold uppercase text-gray-600 mb-1">THPT</div>
+                        <div class="text-2xl font-bold text-gray-500 serif">~ 20%</div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="hidden md:block absolute top-6 left-0 w-full h-1 bg-gradient-to-r from-rose-200 via-emerald-200 to-blue-200 -z-0 rounded-full"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="relative z-10 bg-white p-6 rounded-xl shadow-md border-t-4 border-[#9a0036] text-center hover:-translate-y-1 transition-transform">
+                            <div class="w-12 h-12 rounded-full bg-[#9a0036] text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow">1</div>
+                            <h3 class="font-bold text-gray-800 text-lg mb-2">Điều Chỉnh 2026</h3>
+                            <p class="text-sm text-gray-500">Tăng học phí một lần duy nhất vào năm 2026-2027 để thiết lập mặt bằng giá mới.</p>
+                        </div>
+                        <div class="relative z-10 bg-white p-6 rounded-xl shadow-md border-t-4 border-emerald-500 text-center hover:-translate-y-1 transition-transform">
+                            <div class="w-12 h-12 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow">2</div>
+                            <h3 class="font-bold text-gray-800 text-lg mb-2">Cam Kết Bình Ổn</h3>
+                            <p class="text-sm text-gray-500">Giữ nguyên mức học phí trong giai đoạn 2027-2031 để tạo niềm tin tuyệt đối.</p>
+                        </div>
+                        <div class="relative z-10 bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-500 text-center hover:-translate-y-1 transition-transform">
+                            <div class="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 border-4 border-white shadow">3</div>
+                            <h3 class="font-bold text-gray-800 text-lg mb-2">Tăng Trưởng Bền Vững</h3>
+                            <p class="text-sm text-gray-500">Từ 2027, tăng trưởng dựa vào Volume Growth (lấp đầy) thay vì Price Growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: REPORTS NAVIGATION (UPDATED LINKS) -->
+            <section class="fade-in-up delay-100">
+                <div class="flex items-center mb-6">
+                    <i class="fas fa-th-large text-[#9a0036] mr-3 text-xl"></i>
+                    <h2 class="text-xl font-bold text-gray-800 serif">Báo Cáo & Dữ Liệu Chi Tiết</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="admission.html" class="block bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-[#9a0036] hover:shadow-lg transition-all group relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-16 h-16 bg-blue-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+                        <div class="flex justify-between items-start mb-3 relative z-10">
+                            <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center"><i class="fas fa-users"></i></div>
+                            <i class="fas fa-arrow-right text-gray-300 group-hover:text-[#9a0036]"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 group-hover:text-[#9a0036] transition-colors relative z-10">Tuyển Sinh 25-26</h3>
+                        <p class="text-xs text-gray-500 mt-1 relative z-10">Dữ liệu nền tảng & Lấp đầy</p>
+                    </a>
+                    <a href="finance.html" class="block bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-[#9a0036] hover:shadow-lg transition-all group relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-16 h-16 bg-amber-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+                        <div class="flex justify-between items-start mb-3 relative z-10">
+                            <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center"><i class="fas fa-chart-line"></i></div>
+                            <i class="fas fa-arrow-right text-gray-300 group-hover:text-[#9a0036]"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 group-hover:text-[#9a0036] transition-colors relative z-10">Dự Báo Tài Chính</h3>
+                        <p class="text-xs text-gray-500 mt-1 relative z-10">Doanh thu & Lấp đầy 2030</p>
+                    </a>
+                    <a href="policy.html" class="block bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-[#9a0036] hover:shadow-lg transition-all group relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-16 h-16 bg-teal-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+                        <div class="flex justify-between items-start mb-3 relative z-10">
+                            <div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center"><i class="fas fa-shield-alt"></i></div>
+                            <i class="fas fa-arrow-right text-gray-300 group-hover:text-[#9a0036]"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 group-hover:text-[#9a0036] transition-colors relative z-10">Chính Sách & Ưu Đãi</h3>
+                        <p class="text-xs text-gray-500 mt-1 relative z-10">Chi tiết 5 giá trị cốt lõi</p>
+                    </a>
+                    <!-- NEW LINK: ROADMAP -->
+                    <a href="roadmap.html" class="block bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-[#9a0036] hover:shadow-lg transition-all group relative overflow-hidden">
+                        <div class="absolute right-0 top-0 w-16 h-16 bg-purple-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+                        <div class="flex justify-between items-start mb-3 relative z-10">
+                            <div class="w-10 h-10 bg-purple-100 text-purple-700 rounded-lg flex items-center justify-center"><i class="fas fa-map-marked-alt"></i></div>
+                            <i class="fas fa-arrow-right text-gray-300 group-hover:text-[#9a0036]"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 group-hover:text-[#9a0036] transition-colors relative z-10">Lộ Trình & Đối Thủ</h3>
+                        <p class="text-xs text-gray-500 mt-1 relative z-10">Ma trận cạnh tranh</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- SECTION 3: FEE COMPARISON WIDGET -->
+            <section class="fade-in-up delay-200 bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-6 border-b border-gray-100 pb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 serif flex items-center">
+                        <span class="w-1.5 h-8 bg-[#9a0036] mr-4 rounded-full"></span>So Sánh Phương Án Biểu Phí
+                    </h2>
+                    
+                    <!-- NEW BUTTON ADDED HERE -->
+                    <a href="fees.html" class="flex items-center text-sm font-bold text-[#9a0036] hover:bg-rose-50 px-4 py-2 rounded-lg border border-[#9a0036] transition-colors">
+                        <i class="fas fa-table mr-2"></i> Xem bảng chi tiết 12 khối lớp
+                    </a>
+                </div>
+                
+                <div class="flex space-x-6 mb-8">
+                    <button onclick="updateChart(1)" id="tab-1" class="tab-btn pb-2 text-sm font-medium text-gray-500 hover:text-[#9a0036] border-b-2 border-transparent transition-all">PA1: Thận Trọng</button>
+                    <button onclick="updateChart(2)" id="tab-2" class="tab-btn pb-2 text-sm font-medium text-gray-500 hover:text-[#9a0036] border-b-2 border-transparent transition-all">PA2: Tăng Trưởng Nóng</button>
+                    <button onclick="updateChart(3)" id="tab-3" class="tab-btn active pb-2 text-sm font-medium text-gray-500 hover:text-[#9a0036] border-b-2 border-transparent transition-all">PA3: Cân Bằng (Đề Xuất)</button>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    <div class="lg:col-span-4">
+                        <div class="bg-rose-50 border-l-4 border-[#9a0036] rounded-r-lg p-5 h-full">
+                            <div class="flex items-start">
+                                <i class="fas fa-search-dollar text-[#9a0036] mr-3 mt-1 text-xl"></i>
+                                <div>
+                                    <h4 class="text-[#9a0036] font-bold text-lg mb-2 serif">Nhận định Chiến lược:</h4>
+                                    <p id="insight-text" class="text-gray-800 text-sm leading-relaxed">Điểm đánh giá: 93/100. Tỷ trọng doanh thu từ HS hiện hữu cao nhất. Giảm áp lực tuyển mới. Phù hợp định hướng bền vững.</p>
+                                    <div id="pa3-badge" class="mt-4 pt-4 border-t border-rose-200 text-xs font-bold text-[#9a0036] uppercase flex items-center"><i class="fas fa-check-circle mr-2"></i> Đề xuất chọn PA3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-8 h-[300px]"><canvas id="feeChart"></canvas></div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: APPROVAL -->
+            <section class="fade-in-up delay-300 bg-[#9a0036] rounded-2xl shadow-xl p-10 text-white text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4 serif">Kiến Nghị Của Ban Chính Sách</h2>
+                    <div class="bg-white/10 rounded-xl p-6 mb-8 border border-white/20 text-left">
+                        <h3 class="font-bold text-lg mb-2 text-yellow-300 flex items-center"><i class="fas fa-info-circle mr-2"></i> KHUYẾN NGHỊ:</h3>
+                        <p class="text-white/95 text-lg leading-relaxed font-medium">👉 Đề xuất Ban Lãnh Đạo lựa chọn <span class="text-yellow-300 font-bold underline">PA3</span> làm phương án triển khai chính thức cho năm học 2026–2027.</p>
+                    </div>
+                    <button class="bg-white text-[#9a0036] px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-gray-100 transition hover:scale-105"><i class="fas fa-file-signature mr-2"></i> Phê Duyệt Phương Án 3</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const landing = document.getElementById('landing');
+            const app = document.getElementById('app-content');
+            const navEntries = performance.getEntriesByType("navigation");
+            const isReload = navEntries.length > 0 && navEntries[0].type === 'reload';
+            const hasEntered = sessionStorage.getItem('hasEntered');
+
+            if (hasEntered && !isReload) {
+                landing.style.display = 'none';
+                app.classList.remove('opacity-0');
+            } else {
+                sessionStorage.removeItem('hasEntered');
+            }
+        });
+
+        function enterApp() {
+            const landing = document.getElementById('landing');
+            const app = document.getElementById('app-content');
+            landing.style.opacity = '0';
+            setTimeout(() => {
+                landing.classList.add('landing-hidden');
+                app.classList.remove('opacity-0');
+                sessionStorage.setItem('hasEntered', 'true');
+                setTimeout(initChart, 300);
+            }, 600);
+        }
+
+        let feeChart;
+        const feeData = {
+            1: { insight: "Nhận định PA1 (An Toàn): Đảm bảo tăng trưởng doanh thu an toàn nhưng chưa khai thác tối đa giá trị tệp học sinh hiện hữu.", current: [64.8, 88.4, 104.1, 131.5, 165.0], new: [71.8, 97.5, 114.0, 144.5, 181.2], color: '#3b82f6', isRecommended: false },
+            2: { insight: "Nhận định PA2 (Tăng trưởng nóng): Cải thiện rõ khả năng giữ học sinh, tuy nhiên vẫn còn phụ thuộc nhất định vào nguồn tuyển mới.", current: [64.8, 88.4, 104.1, 131.5, 165.0], new: [95.9, 95.9, 95.9, 138.9, 176.9], color: '#f59e0b', isRecommended: false },
+            3: { insight: "Điểm đánh giá: 93/100. Tỷ trọng doanh thu từ HS hiện hữu cao nhất. Giảm áp lực tuyển mới. Phù hợp định hướng bền vững.", current: [64.8, 88.4, 104.1, 131.5, 165.0], new: [84.7, 84.7, 103.4, 138.9, 176.9], color: '#9a0036', isRecommended: true }
+        };
+
+        function initChart() {
+            if (feeChart) return;
+            const ctx = document.getElementById('feeChart').getContext('2d');
+            Chart.defaults.font.family = "'Reddit Sans', sans-serif";
+            feeChart = new Chart(ctx, {
+                type: 'bar',
+                data: { labels: ["Nhà trẻ", "Mầm", "Lớp 1", "Lớp 6", "Lớp 10"], datasets: [{ label: 'Hiện tại (25-26)', data: feeData[3].current, backgroundColor: '#e5e7eb', borderRadius: 4 }, { label: 'Đề xuất PA3', data: feeData[3].new, backgroundColor: '#9a0036', borderRadius: 4 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' }, tooltip: { callbacks: { label: function(context) { return context.dataset.label + ': ' + context.raw + ' Tr'; } } } }, scales: { y: { beginAtZero: true, title: { display: true, text: 'Triệu VNĐ' } }, x: { grid: { display: false } } } }
+            });
+        }
+
+        function updateChart(paId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => { btn.classList.remove('active'); btn.style.borderColor = 'transparent'; btn.style.color = '#6b7280'; });
+            const activeBtn = document.getElementById(`tab-${paId}`);
+            activeBtn.classList.add('active'); activeBtn.style.borderColor = '#9a0036'; activeBtn.style.color = '#9a0036';
+            const data = feeData[paId];
+            document.getElementById('insight-text').innerText = data.insight;
+            const badge = document.getElementById('pa3-badge');
+            badge.style.display = data.isRecommended ? 'flex' : 'none';
+            if (feeChart) { feeChart.data.datasets[1].data = data.new; feeChart.data.datasets[1].label = `Đề xuất PA${paId}`; feeChart.data.datasets[1].backgroundColor = data.color; feeChart.update(); }
+        }
+    </script>
+</body>
+</html>

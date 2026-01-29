@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Biểu Phí Toàn Hệ Thống | VA Schools</title>
+    
+    <!-- Thư viện -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:wght@400;700&family=Reddit+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --primary: #9a0036; --bg: #fdfbf7; }
+        body { font-family: 'Reddit Sans', sans-serif; background: var(--bg); color: #374151; }
+        h1, h2, h3, .serif { font-family: 'Platypi', serif; }
+        
+        .fee-table th { background-color: #f3f4f6; color: #374151; font-weight: bold; text-align: center; padding: 12px 8px; border: 1px solid #e5e7eb; white-space: nowrap; }
+        .fee-table td { padding: 10px 8px; border: 1px solid #e5e7eb; text-align: right; vertical-align: middle; }
+        .fee-table tr:hover { background-color: #fff1f2; }
+        
+        /* Highlight Columns */
+        .col-pa3 { background-color: #fff1f2; border-left: 2px solid #9a0036; border-right: 2px solid #9a0036; }
+        .header-pa3 { background-color: #9a0036 !important; color: white !important; }
+        
+        .tag-trend-up { color: #dc2626; font-size: 0.70rem; margin-left: 4px; font-weight: bold; display: block; }
+        .tag-trend-down { color: #059669; font-size: 0.70rem; margin-left: 4px; font-weight: bold; display: block; }
+        .section-row { background-color: #e5e7eb; font-weight: bold; text-align: left !important; color: #374151; padding-left: 1rem !important; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center text-gray-600 hover:text-[#9a0036] font-bold transition group">
+                <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i> Quay lại Dashboard
+            </a>
+            <div class="flex items-center gap-3">
+                 <span class="bg-indigo-100 text-indigo-800 text-[10px] font-bold px-2 py-1 rounded border border-indigo-200 uppercase">Dữ liệu Biểu Phí</span>
+                 <h1 class="text-lg font-bold text-[#9a0036] serif">Chi Tiết 3 Phương Án Biểu Phí 2026-2027</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 py-8 pb-20 space-y-10">
+        
+        <!-- SECTION 1: SUMMARY OPTIONS -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- PA1 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-500">
+                <h3 class="font-bold text-gray-800 text-lg mb-2">Phương Án 1 (PA1)</h3>
+                <p class="text-xs text-blue-600 font-bold uppercase mb-4">Thận trọng & An toàn</p>
+                <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4">
+                    <li>Mức tăng thấp (<10%) ở tất cả các khối.</li>
+                    <li>Dễ được phụ huynh chấp nhận nhưng nguồn thu hạn chế.</li>
+                    <li>Điểm đánh giá: <strong>85/100</strong>.</li>
+                </ul>
+            </div>
+            
+            <!-- PA2 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-amber-500">
+                <h3 class="font-bold text-gray-800 text-lg mb-2">Phương Án 2 (PA2)</h3>
+                <p class="text-xs text-amber-600 font-bold uppercase mb-4">Tăng trưởng theo cấp</p>
+                <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4">
+                    <li>Điều chỉnh mạnh ở các điểm chuyển cấp.</li>
+                    <li>Khối Mầm non & Tiểu học giữ mức cạnh tranh cao.</li>
+                    <li>Điểm đánh giá: <strong>87/100</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- PA3 (Recommended) -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#9a0036] relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-[#9a0036] text-white text-[10px] px-2 py-1 rounded-bl">ĐỀ XUẤT</div>
+                <h3 class="font-bold text-[#9a0036] text-lg mb-2">Phương Án 3 (PA3)</h3>
+                <p class="text-xs text-[#9a0036] font-bold uppercase mb-4">Cân bằng & Bền vững</p>
+                <ul class="text-sm text-gray-600 space-y-2 list-disc pl-4">
+                    <li>Tối ưu hóa biểu phí theo giá trị thực tế.</li>
+                    <li><strong>Cam kết KHÔNG TĂNG trong 5 năm (2026-2030).</strong></li>
+                    <li>Tập trung giữ chân HS (Retention).</li>
+                    <li>Điểm đánh giá: <strong>93/100</strong>.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 2: DETAILED TABLE -->
+        <section class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="p-6 border-b border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <h2 class="text-xl font-bold text-gray-800 serif"><i class="fas fa-table mr-2"></i> Bảng So Sánh Chi Tiết Theo Khối Lớp</h2>
+                    <p class="text-sm text-gray-500">Đơn vị tính: Triệu VNĐ / Năm học</p>
+                </div>
+                <button class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded text-sm font-bold transition">
+                    <i class="fas fa-file-excel mr-2"></i> Xuất Excel
+                </button>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full fee-table text-sm">
+                    <thead>
+                        <tr>
+                            <th class="text-left w-32 bg-gray-100">Khối Lớp</th>
+                            <th class="bg-gray-50">Hiện tại (25-26)</th>
+                            <th>PA1 (< 10%)</th>
+                            <th>PA2</th>
+                            <th class="header-pa3">PA3 (Đề Xuất)<br><span class="text-[10px] font-normal text-white/80">(Cam kết 5 năm)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="fee-table-body">
+                        <!-- Data injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 bg-gray-50 text-xs text-gray-500 italic text-center">
+                * Mức học phí trên chưa bao gồm ưu đãi, học bổng và các khoản phí dịch vụ bán trú/xe đưa đón.
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Dữ liệu chi tiết từ yêu cầu cập nhật
+        const feeData = [
+            { section: "Cấp Mầm Non" },
+            { grade: "Nhà Trẻ", current: 64.8, pa1: 71.8, pa2: 95.9, pa3: 84.7 },
+            { grade: "Mầm",     current: 88.4, pa1: 97.5, pa2: 95.9, pa3: 84.7 },
+            { grade: "Chồi",    current: 88.4, pa1: 97.8, pa2: 95.9, pa3: 103.4 },
+            { grade: "Lá",      current: 88.4, pa1: 98.4, pa2: 95.9, pa3: 103.4 },
+
+            { section: "Cấp Tiểu Học" },
+            { grade: "Lớp 1",   current: 104.1, pa1: 114.0, pa2: 95.9, pa3: 103.4 },
+            { grade: "Lớp 2",   current: 120.6, pa1: 131.7, pa2: 138.9, pa3: 138.9 },
+            { grade: "Lớp 3",   current: 120.6, pa1: 131.7, pa2: 138.9, pa3: 138.9 },
+            { grade: "Lớp 4",   current: 130.9, pa1: 143.3, pa2: 138.9, pa3: 138.9 },
+            { grade: "Lớp 5",   current: 130.9, pa1: 143.3, pa2: 138.9, pa3: 138.9 },
+
+            { section: "Cấp THCS" },
+            { grade: "Lớp 6",   current: 131.5, pa1: 144.5, pa2: 138.9, pa3: 138.9 },
+            { grade: "Lớp 7",   current: 153.5, pa1: 168.1, pa2: 176.9, pa3: 176.9 },
+            { grade: "Lớp 8",   current: 163.7, pa1: 179.1, pa2: 176.9, pa3: 176.9 },
+            { grade: "Lớp 9",   current: 163.7, pa1: 179.1, pa2: 176.9, pa3: 176.9 },
+
+            { section: "Cấp THPT" },
+            { grade: "Lớp 10",  current: 165.0, pa1: 181.2, pa2: 176.9, pa3: 176.9 },
+            { grade: "Lớp 11",  current: 191.6, pa1: 210.1, pa2: 250.6, pa3: 250.6 },
+            { grade: "Lớp 12",  current: 266.9, pa1: 291.1, pa2: 250.6, pa3: 250.6 },
+        ];
+
+        const formatNum = (val) => val.toFixed(1) + " Tr";
+
+        const tableBody = document.getElementById('fee-table-body');
+        
+        feeData.forEach(row => {
+            const tr = document.createElement('tr');
+            
+            if (row.section) {
+                // Section Header Row
+                tr.innerHTML = `<td colspan="5" class="section-row uppercase tracking-wider">${row.section}</td>`;
+            } else {
+                // Data Row
+                const diff = row.pa3 - row.current;
+                const percent = ((diff / row.current) * 100).toFixed(1);
+                
+                let tagClass = "tag-trend-up";
+                let icon = '<i class="fas fa-arrow-up"></i>';
+                
+                if (diff < 0) {
+                    tagClass = "tag-trend-down";
+                    icon = '<i class="fas fa-arrow-down"></i>';
+                }
+
+                tr.innerHTML = `
+                    <td class="text-left font-bold text-gray-700 pl-4">${row.grade}</td>
+                    <td class="bg-gray-50 text-gray-500 font-mono">${formatNum(row.current)}</td>
+                    <td class="font-mono text-blue-700">${formatNum(row.pa1)}</td>
+                    <td class="font-mono text-amber-700">${formatNum(row.pa2)}</td>
+                    <td class="col-pa3 font-mono font-bold text-[#9a0036] text-base">
+                        ${formatNum(row.pa3)}
+                        <span class="${tagClass}">${icon} ${Math.abs(percent)}%</span>
+                    </td>
+                `;
+            }
+            tableBody.appendChild(tr);
+        });
+    </script>
+</body>
+</html>

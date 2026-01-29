@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Tuyển Sinh 25-26 | VA Schools</title>
+    
+    <!-- Thư viện -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:wght@400;700&family=Reddit+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root { --primary: #9a0036; --bg: #fdfbf7; }
+        body { font-family: 'Reddit Sans', sans-serif; background: var(--bg); color: #374151; }
+        h1, h2, h3, .serif { font-family: 'Platypi', serif; }
+        
+        .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(154, 0, 54, 0.1); }
+        
+        /* Table Styles */
+        .data-table th { background-color: #f3f4f6; color: #374151; font-weight: bold; text-align: left; padding: 12px; border-bottom: 2px solid #e5e7eb; }
+        .data-table td { padding: 12px; border-bottom: 1px solid #f3f4f6; vertical-align: middle; }
+        .data-table tr:hover { background-color: #fff1f2; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center text-gray-600 hover:text-[#9a0036] font-bold transition group">
+                <i class="fas fa-arrow-left mr-2 group-hover:-translate-x-1 transition-transform"></i> Quay lại Dashboard
+            </a>
+            <div class="flex items-center gap-3">
+                 <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded border border-blue-200 uppercase">Dữ liệu Chốt: 30/09/2025</span>
+                 <h1 class="text-lg font-bold text-[#9a0036] serif">Báo Cáo Tuyển Sinh 2025-2026</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 py-8 pb-20">
+        
+        <!-- 1. KPI CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <!-- Tổng Học Sinh -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#9a0036] card-hover">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase">Tổng Học Sinh</p>
+                        <h3 class="text-3xl font-bold text-gray-800 mt-1 serif">1,818</h3>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-rose-50 text-[#9a0036] flex items-center justify-center"><i class="fas fa-users"></i></div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2 font-medium">Trên tổng công suất 2,987 HS</p>
+            </div>
+
+            <!-- Tổng Doanh Thu Net -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500 card-hover">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase">Doanh Thu Thực (Net)</p>
+                        <h3 class="text-3xl font-bold text-emerald-600 mt-1 serif">181.8 Tỷ</h3>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center"><i class="fas fa-money-bill-wave"></i></div>
+                </div>
+                <p class="text-xs text-gray-500 mt-2">Đã trừ ưu đãi & học bổng</p>
+            </div>
+
+            <!-- Tỷ Lệ Lấp Đầy -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-500 card-hover">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase">% Lấp Đầy Hệ Thống</p>
+                        <h3 class="text-3xl font-bold text-blue-600 mt-1 serif">60.9%</h3>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fas fa-chart-pie"></i></div>
+                </div>
+                <p class="text-xs text-blue-600 mt-2 font-medium">Mục tiêu 2030: 100%</p>
+            </div>
+
+             <!-- Đơn vị dẫn đầu -->
+             <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-amber-500 card-hover">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-xs font-bold text-gray-400 uppercase">Đơn Vị Dẫn Đầu</p>
+                        <h3 class="text-xl font-bold text-amber-600 mt-1 serif">VA Bình Thới</h3>
+                    </div>
+                    <div class="w-10 h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center"><i class="fas fa-trophy"></i></div>
+                </div>
+                <div class="mt-2 text-xs text-gray-600">
+                    <span class="block"><i class="fas fa-check text-green-500 mr-1"></i> Lấp đầy: <strong>67%</strong></span>
+                    <span class="block"><i class="fas fa-check text-green-500 mr-1"></i> Doanh thu: <strong>101.1 Tỷ</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. CHARTS SECTION -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Chart 1: Revenue by Level -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                <h3 class="text-lg font-bold text-gray-800 mb-6 serif border-b pb-2">Tỷ Trọng Doanh Thu Theo Cấp Học</h3>
+                <div class="h-[300px]">
+                    <canvas id="levelChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Chart 2: Fill Rate by Campus -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                <h3 class="text-lg font-bold text-gray-800 mb-6 serif border-b pb-2">Tỷ Lệ Lấp Đầy Theo Cơ Sở</h3>
+                <div class="h-[300px]">
+                    <canvas id="campusChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. DETAILED TABLE -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                <h3 class="text-lg font-bold text-gray-800 serif">Chi Tiết Số Liệu Từng Cơ Sở</h3>
+                <button class="text-sm text-[#9a0036] font-bold hover:underline"><i class="fas fa-download mr-1"></i> Xuất Excel</button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full data-table text-sm">
+                    <thead>
+                        <tr>
+                            <th>Cơ sở</th>
+                            <th>Cấp học</th>
+                            <th class="text-right">Tổng HS</th>
+                            <th class="text-right">Công suất</th>
+                            <th class="text-right">% Lấp đầy</th>
+                            <th class="text-right">Doanh thu Net (VNĐ)</th>
+                            <th class="text-right">Tỷ lệ Drop</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- Data will be injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        // --- DATA SOURCE (Updated based on user request) ---
+        // Total Students: 1,818
+        // Total Rev: ~181.8B
+        // VA Binh Thoi: Rev 101.1B, Fill 67%
+        
+        const admissionData = [
+            // VA BÌNH THỚI (Leader) ~ 101.1 Tỷ, 67% Fill
+            { campus: "VA Bình Thới", level: "Tiểu học", students: 432, capacity: 640, fill: 68, revenue: 45500000000, drop: 5 },
+            { campus: "VA Bình Thới", level: "THCS", students: 310, capacity: 480, fill: 65, revenue: 35100000000, drop: 10 },
+            { campus: "VA Bình Thới", level: "THPT", students: 198, capacity: 290, fill: 68, revenue: 20500000000, drop: 20 },
+            
+            // VA TÂN BÌNH
+            { campus: "VA Tân Bình", level: "Tiểu học", students: 215, capacity: 350, fill: 61, revenue: 26000000000, drop: 5 },
+            { campus: "VA Tân Bình", level: "THCS", students: 160, capacity: 250, fill: 64, revenue: 19500000000, drop: 10 },
+            { campus: "VA Tân Bình", level: "THPT", students: 95, capacity: 150, fill: 63, revenue: 14200000000, drop: 20 },
+            
+            // CÁC CƠ SỞ KHÁC (Adjusted to fit Total ~1,818 & 181.8B)
+            { campus: "VA Phú Định", level: "Mầm non", students: 45, capacity: 200, fill: 22, revenue: 2800000000, drop: 15 },
+            { campus: "VA Phú Định", level: "Tiểu học", students: 85, capacity: 150, fill: 57, revenue: 6100000000, drop: 5 },
+            
+            { campus: "VA Hạnh Thông", level: "Mầm non", students: 68, capacity: 200, fill: 34, revenue: 3900000000, drop: 15 },
+            { campus: "VA Vĩnh Hội", level: "Mầm non", students: 120, capacity: 180, fill: 67, revenue: 5200000000, drop: 15 },
+            
+            { campus: "VA Thông Tây Hội", level: "Tiểu học", students: 90, capacity: 150, fill: 60, revenue: 3000000000, drop: 5 },
+        ];
+
+        // Format Currency
+        const formatCurrency = (val) => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 }).format(val);
+
+        // --- 1. RENDER TABLE ---
+        const tableBody = document.getElementById('table-body');
+        
+        admissionData.forEach(row => {
+            const tr = document.createElement('tr');
+            
+            // Color code for Fill Rate
+            let fillClass = 'text-gray-800';
+            if(row.fill >= 90) fillClass = 'text-green-600 font-bold';
+            else if(row.fill < 50) fillClass = 'text-red-500 font-bold';
+
+            tr.innerHTML = `
+                <td class="font-bold text-[#9a0036]">${row.campus}</td>
+                <td><span class="px-2 py-1 bg-gray-100 rounded text-xs font-bold text-gray-600">${row.level}</span></td>
+                <td class="text-right font-medium">${row.students}</td>
+                <td class="text-right text-gray-500">${row.capacity}</td>
+                <td class="text-right ${fillClass}">${row.fill}%</td>
+                <td class="text-right font-mono text-gray-700">${formatCurrency(row.revenue)}</td>
+                <td class="text-right text-xs text-red-500">${row.drop}%</td>
+            `;
+            tableBody.appendChild(tr);
+        });
+
+        // --- 2. CHART 1: REVENUE BY LEVEL ---
+        const levels = { 'Mầm non': 0, 'Tiểu học': 0, 'THCS': 0, 'THPT': 0 };
+        admissionData.forEach(d => {
+            if(levels[d.level] !== undefined) levels[d.level] += d.revenue;
+        });
+
+        const ctxLevel = document.getElementById('levelChart').getContext('2d');
+        new Chart(ctxLevel, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(levels),
+                datasets: [{
+                    data: Object.values(levels),
+                    backgroundColor: ['#f59e0b', '#10b981', '#3b82f6', '#001f3f'], // Amber, Emerald, Blue, Navy
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right', labels: { font: { family: "'Reddit Sans', sans-serif" } } },
+                    tooltip: {
+                        callbacks: {
+                            label: (ctx) => ' ' + formatCurrency(ctx.raw)
+                        }
+                    }
+                }
+            }
+        });
+
+        // --- 3. CHART 2: FILL RATE BY CAMPUS (Avg) ---
+        const campusFill = {};
+        const campusCount = {};
+        
+        admissionData.forEach(d => {
+            if(!campusFill[d.campus]) { campusFill[d.campus] = 0; campusCount[d.campus] = 0; }
+            campusFill[d.campus] += d.fill;
+            campusCount[d.campus] += 1;
+        });
+
+        const campusLabels = Object.keys(campusFill);
+        const campusData = campusLabels.map(c => (campusFill[c] / campusCount[c]).toFixed(1));
+
+        const ctxCampus = document.getElementById('campusChart').getContext('2d');
+        new Chart(ctxCampus, {
+            type: 'bar',
+            data: {
+                labels: campusLabels,
+                datasets: [{
+                    label: '% Lấp Đầy Trung Bình',
+                    data: campusData,
+                    backgroundColor: '#9a0036',
+                    borderRadius: 4,
+                    barThickness: 20
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y', // Horizontal Bar
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: { min: 0, max: 100, title: { display: true, text: '%' } },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -49,6 +49,22 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+
+        /* Modal Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .modal-animate-fade {
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-animate-slide {
+            animation: slideIn 0.3s ease-out;
+        }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen">
@@ -332,22 +348,152 @@
 
     </div>
 
-    <!-- JavaScript Mô phỏng hành động click -->
-    <script>
-        function openPolicyModal(groupName) {
-            // Mapping tên nhóm đầy đủ
-            const names = {
-                'dh': '1. Đồng Hành (Nhà trẻ - Mầm)',
-                'um': '2. Ươm Mầm (Chồi - Lớp 1)',
-                'km': '3. Khai Mở (Lớp 2 - Lớp 6)',
-                'ht': '4. Hành Trang (Lớp 7 - Lớp 10)',
-                'cc': '5. Chấp Cánh (Lớp 11 - Lớp 12)',
-                'kol': '6. KOC/KOL (Truyền thông)',
-                'gov': '7. Cơ Quan Ban Ngành'
-            };
+    <!-- MODAL POPUP -->
+    <div id="policy-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center z-50 flex modal-animate-fade" onclick="closeModalOnOutsideClick(event)">
+        <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-hidden flex flex-col modal-animate-slide">
+            <!-- Header Modal -->
+            <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                <h3 id="modal-title" class="font-bold text-xl text-gray-800 tag-font">Danh sách chính sách</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-200">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
             
-            alert(`Đang mở chi tiết danh sách chính sách nhóm: ${names[groupName] || groupName}`);
-            console.log(`User clicked group: ${groupName}`);
+            <!-- Body Modal -->
+            <div id="modal-content" class="p-6 overflow-y-auto">
+                <!-- Nội dung sẽ được điền bởi JavaScript -->
+            </div>
+            
+            <!-- Footer Modal -->
+            <div class="p-4 border-t border-gray-100 bg-gray-50 flex justify-end">
+                <button onclick="closeModal()" class="px-5 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg text-gray-700 font-bold transition text-sm">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Xử lý Logic Modal -->
+    <script>
+        // Dữ liệu chi tiết các nhóm chính sách (Giả lập để hiển thị đầy đủ)
+        const policyData = {
+            'dh': {
+                title: '1. ĐỒNG HÀNH (Nhà trẻ - Mầm)',
+                color: 'var(--color-dh)',
+                items: [
+                    { code: 'VAĐH1', name: 'Ưu đãi Nhóm', desc: 'Nhóm 3 (5%), Nhóm 5 (7%), Nhóm 7 (10%).' },
+                    { code: 'VAĐH2', name: 'Thẻ Đồng Hành', desc: 'Tặng thẻ ưu đãi dịch vụ & Tặng 2 tuần Hè trải nghiệm.' },
+                    { code: 'VAĐH3', name: 'Đóng phí cả năm', desc: 'Giảm 10% khi đóng trọn gói 1 năm học.' },
+                    { code: 'VAĐH4', name: 'Anh chị em ruột', desc: 'Giảm 10% cho bé thứ 2, 15% cho bé thứ 3 học cùng hệ thống.' },
+                    { code: 'VAĐH5', name: 'Con cựu học sinh', desc: 'Giảm 5% cho con của cựu học sinh trường.' },
+                    { code: 'VAĐH6', name: 'Thanh toán sớm', desc: 'Giảm thêm 2% khi hoàn tất học phí trước 30/6.' },
+                    { code: 'VAĐH7', name: 'Quà tặng nhập học', desc: 'Tặng bộ đồng phục & Balo khi nhập học sớm.' },
+                    { code: 'VAĐH8', name: 'Hỗ trợ xe bus', desc: 'Giảm 20% phí xe đưa đón tháng đầu tiên.' }
+                ]
+            },
+            'um': {
+                title: '2. ƯƠM MẦM (Chồi - Lớp 1)',
+                color: 'var(--color-um)',
+                items: [
+                    { code: 'VAUM13', name: 'Chuyển cấp', desc: 'Ưu đãi 20% học phí chính khóa khi lên lớp 1.' },
+                    { code: 'VAUM1', name: 'Đăng ký Nhóm', desc: 'Nhóm 3 (5%) - Nhóm 7 (10%) học phí.' },
+                    { code: 'VAUM2', name: 'Học bổng Tiếng Anh', desc: 'Tặng khóa học hè Tiếng Anh trị giá 3.000.000đ.' },
+                    { code: 'VAUM3', name: 'Hành trang vào lớp 1', desc: 'Miễn phí khóa học tiền tiểu học 4 tuần.' },
+                    { code: 'VAUM4', name: 'CLB Năng khiếu', desc: 'Tặng 1 voucher CLB ngoại khóa bất kỳ.' },
+                    // ... Thêm các mục giả lập khác để đủ số lượng nếu cần
+                    { code: 'VAUM...', name: 'Chính sách khác...', desc: 'Đang cập nhật chi tiết...' }
+                ]
+            },
+            'km': {
+                title: '3. KHAI MỞ (Lớp 2 - Lớp 6)',
+                color: 'var(--color-km)',
+                items: [
+                    { code: 'VAKM10', name: 'Chuyển cấp Lớp 6', desc: 'Ưu đãi 20% học phí chính khóa.' },
+                    { code: 'VAKM1', name: 'Đăng ký Nhóm', desc: 'Nhóm 3 (5%), Nhóm 5 (7%), Nhóm 7 (10%).' },
+                    { code: 'VAKM2', name: 'Học bổng Tài năng', desc: 'Học bổng 30-50-100% dựa trên kết quả kiểm tra đầu vào.' },
+                    { code: 'VAKM3', name: 'Cam kết đầu ra', desc: 'Cam kết chứng chỉ Cambridge Starter/Mover/Flyer.' },
+                    { code: 'VAKM4', name: 'Trại hè Công nghệ', desc: 'Giảm 50% phí tham gia trại hè STEM/Robotics.' }
+                ]
+            },
+            'ht': {
+                title: '4. HÀNH TRANG (Lớp 7 - Lớp 10)',
+                color: 'var(--color-ht)',
+                items: [
+                    { code: 'VAHT12', name: 'Học bổng IELTS', desc: '20 suất học bổng trị giá 100.000.000đ luyện thi IELTS.' },
+                    { code: 'VAHT13', name: 'Tân Bình -> Bình Thới', desc: 'Giảm 15% học phí + Miễn phí Bus tuyến cố định.' },
+                    { code: 'VAHT1', name: 'Học sinh Giỏi cấp Quận', desc: 'Giảm 30% học phí kỳ I cho HS đạt giải.' },
+                    { code: 'VAHT2', name: 'Hỗ trợ laptop', desc: 'Hỗ trợ mua laptop học tập trả góp lãi suất 0%.' }
+                ]
+            },
+            'cc': {
+                title: '5. CHẤP CÁNH (Lớp 11 - Lớp 12)',
+                color: 'var(--color-cc)',
+                items: [
+                    { code: 'VACC11', name: 'Hỗ trợ ĐH/CĐ', desc: 'Hỗ trợ 100% phí hồ sơ du học các trường đối tác.' },
+                    { code: 'VACC8', name: 'Talent Honor', desc: 'Học bổng Tài năng Gold (100%), Silver (50%), Bronze (30%).' },
+                    { code: 'VACC1', name: 'Luyện thi Đại học', desc: 'Miễn phí các lớp tăng cường buổi tối.' },
+                    { code: 'VACC2', name: 'Hướng nghiệp 1:1', desc: 'Tư vấn chuyên sâu cùng chuyên gia.' }
+                ]
+            },
+            'kol': {
+                title: '6. KOC/KOL (Truyền thông)',
+                color: 'var(--color-kol)',
+                items: [
+                    { code: 'VAKOL1', name: 'Đại Sứ Thương Hiệu', desc: 'Học bổng 100% cho con KOLs cam kết độc quyền hình ảnh.' },
+                    { code: 'VAKOL2', name: 'Content Creator', desc: 'Giảm 30-50% cho KOC sản xuất video review định kỳ.' },
+                    { code: 'VAKOL3', name: 'Check-in Lan tỏa', desc: 'Tặng voucher 500k khi phụ huynh check-in sự kiện công khai.' }
+                ]
+            },
+            'gov': {
+                title: '7. CƠ QUAN BAN NGÀNH',
+                color: 'var(--color-gov)',
+                items: [
+                    { code: 'VAGOV1', name: 'Cán Bộ Địa Phương', desc: 'Giảm 20% trọn đời cấp học cho con CBNV UBND Quận/Phường.' },
+                    { code: 'VAGOV2', name: 'Ngành Giáo Dục', desc: 'Giảm 15% cho con Giáo viên/Cán bộ Sở GD&ĐT.' },
+                    { code: 'VAGOV3', name: 'Lực lượng vũ trang', desc: 'Giảm 10% cho con Công an/Bộ đội tại địa bàn.' }
+                ]
+            }
+        };
+
+        const modal = document.getElementById('policy-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+
+        function openPolicyModal(groupKey) {
+            const data = policyData[groupKey];
+            if (!data) return;
+
+            // Set Title
+            modalTitle.innerText = data.title;
+            modalTitle.style.color = data.color;
+
+            // Build Content HTML
+            let html = '<div class="space-y-3">';
+            data.items.forEach(item => {
+                html += `
+                    <div class="border-l-4 pl-4 py-2 bg-gray-50 rounded-r-lg" style="border-color: ${data.color}">
+                        <div class="flex justify-between items-start">
+                            <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
+                            <span class="text-[10px] font-mono bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded">${item.code}</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1">${item.desc}</p>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            modalContent.innerHTML = html;
+
+            // Show Modal
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        function closeModalOnOutsideClick(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
         }
     </script>
 </body>

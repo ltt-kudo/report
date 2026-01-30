@@ -11,13 +11,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts: Cập nhật sang Lexend cho vẻ đẹp hiện đại, thoáng đãng -->
+    <!-- Google Fonts: Lexend -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Định nghĩa các biến màu được sử dụng trong code gốc */
         :root {
             --color-dh: #0d9488; /* Teal-600 */
             --color-um: #f97316; /* Orange-500 */
@@ -28,43 +27,26 @@
             --color-gov: #4b5563; /* Gray-600 */
         }
 
-        /* Cập nhật Font chữ mới: Lexend */
-        body {
-            font-family: 'Lexend', sans-serif;
-        }
-        
-        .serif-font {
-            font-family: 'Lexend', sans-serif; /* Đồng bộ font cho tiêu đề */
-        }
-        
-        .tag-font {
-            font-family: 'Lexend', sans-serif;
-        }
+        body { font-family: 'Lexend', sans-serif; }
+        .serif-font { font-family: 'Lexend', sans-serif; }
+        .tag-font { font-family: 'Lexend', sans-serif; }
 
-        /* Hiệu ứng hover cho card */
-        .card-shadow {
-            transition: all 0.3s ease;
-        }
+        .card-shadow { transition: all 0.3s ease; }
         .card-shadow:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        /* Modal Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .modal-animate-fade {
-            animation: fadeIn 0.3s ease-out;
-        }
-        .modal-animate-slide {
-            animation: slideIn 0.3s ease-out;
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-animate-fade { animation: fadeIn 0.3s ease-out; }
+        .modal-animate-slide { animation: slideIn 0.3s ease-out; }
+        
+        /* Custom scrollbar for modal content */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
 <body class="bg-gray-100 min-h-screen">
@@ -103,12 +85,12 @@
                 <div class="p-4 flex-1 relative">
                     <div class="space-y-4">
                         <div class="border-l-2 pl-3" style="border-color: var(--color-dh);">
-                            <h4 class="text-sm font-bold text-gray-900">VAĐH1: Ưu đãi Nhóm</h4>
-                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Nhóm 3 (5%), Nhóm 5 (7%), Nhóm 7 (10%).</p>
+                            <h4 class="text-sm font-bold text-gray-900">VAĐH1: Chính sách đăng ký nhóm</h4>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Nhóm 5 (5%), Nhóm 7 (7%), Nhóm 10 (10%).</p>
                         </div>
                         <div class="border-l-2 pl-3" style="border-color: var(--color-dh);">
-                            <h4 class="text-sm font-bold text-gray-900">VAĐH2: Thẻ Đồng Hành</h4>
-                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Thẻ ưu đãi dịch vụ & Tặng 2 tuần Hè.</p>
+                            <h4 class="text-sm font-bold text-gray-900">VAĐH2: Ưu đãi Sự kiện</h4>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Tặng thẻ VA Schools đồng hành & Tặng 2 tuần Hè.</p>
                         </div>
                     </div>
                     <div class="mt-4 text-center">
@@ -127,12 +109,12 @@
                 <div class="p-4 flex-1 relative">
                     <div class="space-y-4">
                         <div class="border-l-2 pl-3" style="border-color: var(--color-um);">
-                            <h4 class="text-sm font-bold text-gray-900">VAUM13: Chuyển cấp</h4>
-                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Ưu đãi 20% học phí chính khóa.</p>
+                            <h4 class="text-sm font-bold text-gray-900">VAUM3: Chính sách "Gắn kết"</h4>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Ưu đãi học phí theo năm học tại VA Schools.</p>
                         </div>
                         <div class="border-l-2 pl-3" style="border-color: var(--color-um);">
-                            <h4 class="text-sm font-bold text-gray-900">VAUM1: Đăng ký Nhóm</h4>
-                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Nhóm 3 (5%) - Nhóm 7 (10%) học phí.</p>
+                            <h4 class="text-sm font-bold text-gray-900">VAUM12: Học bổng VA Scholars</h4>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Merit, Leadership, Wisdom, Excellence, Achiever.</p>
                         </div>
                     </div>
                     <div class="mt-4 text-center">
@@ -176,7 +158,7 @@
                     <div class="space-y-4">
                         <div class="border-l-2 pl-3" style="border-color: var(--color-ht);">
                             <h4 class="text-sm font-bold text-gray-900">VAHT12: Học bổng IELTS</h4>
-                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">20 suất học bổng trị giá 100.000.000đ.</p>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">20 suất học bổng trị giá 100.000.000đ luyện thi IELTS.</p>
                         </div>
                         <div class="border-l-2 pl-3" style="border-color: var(--color-ht);">
                             <h4 class="text-sm font-bold text-gray-900">VAHT13: Tân Bình -> Bình Thới</h4>
@@ -231,12 +213,12 @@
                 <div class="p-4 flex-1 relative">
                     <div class="space-y-4">
                         <div class="border-l-2 pl-3" style="border-color: var(--color-kol);">
-                            <h4 class="text-sm font-bold text-gray-900">VAKOL1: Đại Sứ Thương Hiệu</h4>
-                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Học bổng 100% cho con KOLs cam kết độc quyền hình ảnh.</p>
+                            <h4 class="text-sm font-bold text-gray-900">VAKOC1: Đại sứ phụ huynh</h4>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Ưu đãi thêm 10%-20% học phí cộng gộp.</p>
                         </div>
                         <div class="border-l-2 pl-3" style="border-color: var(--color-kol);">
-                            <h4 class="text-sm font-bold text-gray-900">VAKOL2: Content Creator</h4>
-                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Giảm 30-50% cho KOC sản xuất video review định kỳ.</p>
+                            <h4 class="text-sm font-bold text-gray-900">VAKOL1: Đại sứ sáng tạo</h4>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Ưu đãi 30%-50% học phí chính khóa.</p>
                         </div>
                     </div>
                     <div class="mt-4 text-center">
@@ -250,21 +232,21 @@
                 <div class="p-4 bg-gray-50 border-b border-gray-100 group-hover:bg-gray-100 transition">
                     <h3 class="font-bold text-lg tag-font" style="color: var(--color-gov);">7. CƠ QUAN BAN NGÀNH</h3>
                     <p class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Đối Ngoại & Quan Hệ Công Chúng</p>
-                    <div class="mt-2 text-xs bg-gray-200 text-gray-800 rounded px-2 py-0.5 inline-block font-bold">3 Chính sách</div>
+                    <div class="mt-2 text-xs bg-gray-200 text-gray-800 rounded px-2 py-0.5 inline-block font-bold">4 Chính sách</div>
                 </div>
                 <div class="p-4 flex-1 relative">
                     <div class="space-y-4">
                         <div class="border-l-2 pl-3" style="border-color: var(--color-gov);">
-                            <h4 class="text-sm font-bold text-gray-900">VAGOV1: Cán Bộ Địa Phương</h4>
-                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Giảm 20% trọn đời cấp học cho con CBNV UBND Quận/Phường.</p>
+                            <h4 class="text-sm font-bold text-gray-900">VAGOV1: Bí thư</h4>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Ưu đãi 50% học phí cho con và cháu ruột của Bí thư.</p>
                         </div>
                         <div class="border-l-2 pl-3" style="border-color: var(--color-gov);">
-                            <h4 class="text-sm font-bold text-gray-900">VAGOV2: Ngành Giáo Dục</h4>
-                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Giảm 15% cho con Giáo viên/Cán bộ Sở GD&ĐT.</p>
+                            <h4 class="text-sm font-bold text-gray-900">VAGOV2: Chủ tịch</h4>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-2">Ưu đãi 40% học phí cho con và cháu ruột của Chủ tịch.</p>
                         </div>
                     </div>
                     <div class="mt-4 text-center">
-                        <span class="text-xs font-bold text-gray-600 underline group-hover:text-gray-800">Xem đủ 3 chính sách <i class="fas fa-angle-down ml-1"></i></span>
+                        <span class="text-xs font-bold text-gray-600 underline group-hover:text-gray-800">Xem đủ 4 chính sách <i class="fas fa-angle-down ml-1"></i></span>
                     </div>
                 </div>
             </div>
@@ -287,25 +269,51 @@
                     <div class="bg-yellow-100 text-yellow-700 w-10 h-10 rounded-full flex items-center justify-center"><i class="fas fa-birthday-cake"></i></div>
                 </div>
                 <div class="p-5 space-y-4">
+                    <!-- VA20.1 -->
                     <div class="flex items-start">
-                        <div class="flex-shrink-0 mt-1 w-6 text-yellow-600"><i class="fas fa-plane"></i></div>
+                        <div class="flex-shrink-0 mt-1 w-6 text-yellow-600"><i class="fas fa-trophy"></i></div>
                         <div>
-                            <h5 class="font-bold text-gray-800 text-sm">Tài trợ Dã ngoại Nước ngoài (VA20.3)</h5>
-                            <p class="text-xs text-gray-600">100% chi phí cho HS gắn bó >6 năm. 50% cho HS gắn bó 3-5 năm (Khối THPT).</p>
+                            <h5 class="font-bold text-gray-800 text-sm">"Talent Honor Awards" (Học sinh mới) (VA20.1)</h5>
+                            <p class="text-xs text-gray-600">
+                                - TALENT GOLD: 100% học phí 1 năm học.<br>
+                                - TALENT SILVER: 50% học phí 1 năm học.<br>
+                                - TALENT BRONZE: 30% học phí 1 năm học.
+                            </p>
                         </div>
                     </div>
+                    <!-- VA20.2 -->
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1 w-6 text-yellow-600"><i class="fas fa-graduation-cap"></i></div>
+                        <div>
+                            <h5 class="font-bold text-gray-800 text-sm">"VA Scholars" (Học sinh cũ) (VA20.2)</h5>
+                            <p class="text-xs text-gray-600">
+                                - MERIT SCHOLAR: 100% học phí 1 năm học.<br>
+                                - LEADERSHIP SCHOLAR: 60% học phí 1 năm học.<br>
+                                - WISDOM SCHOLAR: 30% học phí 1 năm học.<br>
+                                - EXCELLENCE SCHOLAR: 20% học phí 1 năm học.<br>
+                                - ACHIEVER SCHOLAR: 10% học phí 1 năm học
+                            </p>
+                        </div>
+                    </div>
+                    <!-- VA20.3 -->
                     <div class="flex items-start">
                         <div class="flex-shrink-0 mt-1 w-6 text-yellow-600"><i class="fas fa-exchange-alt"></i></div>
                         <div>
-                            <h5 class="font-bold text-gray-800 text-sm">Ưu đãi Chuyển cấp Đặc biệt (VA20.4)</h5>
-                            <p class="text-xs text-gray-600">Giảm 20% Học phí cho HS Lớp Lá lên 1, L5 lên 6, L9 lên 10 (Áp dụng đồng thời).</p>
+                            <h5 class="font-bold text-gray-800 text-sm">Học sinh chuyển cấp (học sinh cũ) (VA20.3)</h5>
+                            <p class="text-xs text-gray-600">Ưu đãi 20% học phí chính khóa.</p>
                         </div>
                     </div>
+                    <!-- VA20.4 -->
                     <div class="flex items-start">
                         <div class="flex-shrink-0 mt-1 w-6 text-yellow-600"><i class="fas fa-id-card"></i></div>
                         <div>
-                            <h5 class="font-bold text-gray-800 text-sm">VA Plus / Elite Cards (VA20.5)</h5>
-                            <p class="text-xs text-gray-600">Ưu đãi 5% các dịch vụ (xe, ăn, CLB) cho chủ thẻ.</p>
+                            <h5 class="font-bold text-gray-800 text-sm">VA Elite Card (VA20.4)</h5>
+                            <p class="text-xs text-gray-600">
+                                - Ưu đãi 10% phí đồng phục, SGK.<br>
+                                - Ưu đãi 15% học phí khóa Hè.<br>
+                                - Ưu đãi 15% học phí CLB ngoài giờ.<br>
+                                - Ưu đãi dịch vụ tại hệ thống đối tác liên kết của VA Schools.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -324,22 +332,17 @@
                     <div class="flex items-start">
                         <div class="flex-shrink-0 mt-1 w-6 text-[#9a0036]"><i class="fas fa-user-tie"></i></div>
                         <div>
-                            <h5 class="font-bold text-gray-800 text-sm">Con em Cán bộ Nhân viên (CBNV1-3)</h5>
-                            <p class="text-xs text-gray-600">Giảm 50% - 70% Học phí tùy thâm niên & điểm cống hiến.</p>
+                            <h5 class="font-bold text-gray-800 text-sm">Cán bộ nhân viên</h5>
+                            <p class="text-xs text-gray-600">Giảm 50% - 60% - 70% Học phí tùy đối tượng, thâm niên & điểm cống hiến.</p>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="flex-shrink-0 mt-1 w-6 text-blue-600"><i class="fas fa-building"></i></div>
                         <div>
-                            <h5 class="font-bold text-gray-800 text-sm">Đối tác Liên kết (ĐTCS1)</h5>
-                            <p class="text-xs text-gray-600">Giảm 5.000.000đ học phí cho khách hàng/nhân viên đối tác.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 mt-1 w-6 text-emerald-600"><i class="fas fa-school"></i></div>
-                        <div>
-                            <h5 class="font-bold text-gray-800 text-sm">Thuê Cơ sở Vật chất (ĐTCS4)</h5>
-                            <p class="text-xs text-gray-600">Giảm 15% phí thuê hội trường, phòng họp, sân bãi cho đối tác.</p>
+                            <h5 class="font-bold text-gray-800 text-sm">Đối tác Liên kết</h5>
+                            <p class="text-xs text-gray-600 mb-1">- Đối tác cơ sở: Ưu đãi học phí 5 - 7 triệu đồng tuỳ đối tượng...</p>
+                            <p class="text-xs text-gray-600 mb-1">- Đối tác ưu tiên: Ưu đãi học phí 5 - 10 triệu đồng tuỳ đối tượng...</p>
+                            <p class="text-xs text-gray-600">- Đối tác chiến lược: Ưu đãi học phí 7 - 12 triệu đồng tuỳ đối tượng...</p>
                         </div>
                     </div>
                 </div>
@@ -360,7 +363,7 @@
             </div>
             
             <!-- Body Modal -->
-            <div id="modal-content" class="p-6 overflow-y-auto">
+            <div id="modal-content" class="p-6 overflow-y-auto custom-scrollbar">
                 <!-- Nội dung sẽ được điền bởi JavaScript -->
             </div>
             
@@ -379,76 +382,106 @@
                 title: '1. ĐỒNG HÀNH (Nhà trẻ - Mầm)',
                 color: 'var(--color-dh)',
                 items: [
-                    { code: 'VAĐH1', name: 'Ưu đãi Nhóm', desc: 'Nhóm 3 (5%), Nhóm 5 (7%), Nhóm 7 (10%).' },
-                    { code: 'VAĐH2', name: 'Thẻ Đồng Hành', desc: 'Tặng thẻ ưu đãi dịch vụ & Tặng 2 tuần Hè trải nghiệm.' },
-                    { code: 'VAĐH3', name: 'Đóng phí cả năm', desc: 'Giảm 10% khi đóng trọn gói 1 năm học.' },
-                    { code: 'VAĐH4', name: 'Anh chị em ruột', desc: 'Giảm 10% cho bé thứ 2, 15% cho bé thứ 3 học cùng hệ thống.' },
-                    { code: 'VAĐH5', name: 'Con cựu học sinh', desc: 'Giảm 5% cho con của cựu học sinh trường.' },
-                    { code: 'VAĐH6', name: 'Thanh toán sớm', desc: 'Giảm thêm 2% khi hoàn tất học phí trước 30/6.' },
-                    { code: 'VAĐH7', name: 'Quà tặng nhập học', desc: 'Tặng bộ đồng phục & Balo khi nhập học sớm.' },
-                    { code: 'VAĐH8', name: 'Hỗ trợ xe bus', desc: 'Giảm 20% phí xe đưa đón tháng đầu tiên.' }
+                    { code: 'VAĐH1', name: 'Chính sách đăng ký nhóm', desc: '+ Nhóm 5 Phụ Huynh: giảm 5% học phí năm đầu tiên/học sinh<br>+ Nhóm 7 Phụ Huynh: giảm 7% học phí năm đầu tiên/học sinh<br>+ Nhóm 10 Phụ Huynh: giảm 10% học phí năm đầu tiên/học sinh' },
+                    { code: 'VAĐH2', name: 'Ưu đãi Sự kiện & Thẻ Đồng Hành', desc: 'Phụ huynh tham dự các sự kiện Open Day hoặc School Tour và đóng học phí ít nhất 01 học phần trong thời hạn 15 ngày kể từ ngày tổ chức sự kiện Open Day hoặc School Tour:<br>1. Tặng thẻ VA Schools đồng hành được sử dụng như sau:<br>- Sử dụng để thanh toán các khoản: phí nhập học, phí BHYT, phí đồng phục, phí sách.<br>- Sử dụng tham gia các khóa đào tạo giáo dục/ tâm lý/ nuôi dạy trẻ.<br>- Sử dụng để giảm học phí khi đăng ký khóa đào tạo kỹ năng sống ngoài giờ.<br>- Sử dụng để giảm chi phí tham gia các hoạt động ngoại khóa (không nằm trong chương trình đào tạo).<br>- Các chương trình, khóa đào tạo nội bộ phát sinh khác trong năm (nếu có) phục vụ cho công tác đào tạo và giáo dục của hệ thống.<br>- Không có giá trị quy đổi thành tiền mặt.<br>2. Tặng thêm học phí 2 tuần khóa hè nếu đăng ký và đóng phí tại ngày sự kiện<br>- Ưu đãi không quy đổi tiền mặt, không chuyển nhượng.<br>- Chỉ áp dụng cho học sinh TH, THCS, THPT.' },
+                    { code: 'VAĐH3', name: 'Chính sách Tri ân', desc: 'Giảm học phí theo thâm niên:<br>+ 07 năm: giảm 13.5%<br>+ 08 năm: giảm 14.5%<br>+ 09 năm: giảm 15%<br>+ =>10 năm: giảm 15.5%<br>(không áp dụng đồng thời với chính sách VAĐH4 và VAĐH5)' },
+                    { code: 'VAĐH4', name: 'Đóng phí cả năm 2026-2027', desc: 'Phụ Huynh đóng học phí chính khóa cả năm 2026-2027:<br>+ Giảm 8% học phí khi đóng đến hết 31/03/2026<br>+ Giảm 7% học phí khi đóng đến hết 30/04/2026<br>+ Giảm 6.5% học phí khi đóng đến hết 31/05/2026<br>+ Giảm 5.5% học phí khi đóng đến hết 30/06/2026<br>+ Giảm 5% học phí khi đóng đến hết 31/07/2026<br>Phụ huynh đóng học phí ít nhất 4 tuần khóa hè:<br>+ Tặng 1.000.000 đồng được cấn trừ vào học phí chính khóa, không quy đổi tiền mặt' },
+                    { code: 'VAĐH5', name: 'Đóng phí theo học phần', desc: 'Phụ Huynh đóng học phí từ 02 học phần trở lên đến hết thời hạn đóng phí theo học phần gần nhất năm học 2026-2027:<br>+ Giảm 3% học phí thực đóng (không áp dụng đồng thời với chính sách VAĐH4)' },
+                    { code: 'VAĐH6', name: 'Anh chị em ruột', desc: 'Phụ huynh có từ 02 con trở lên (là Anh, Chị, Em ruột) học cùng hệ thống VAschools:<br>+ Giảm 5% học phí cho con thứ 2.<br>+ Giảm 10% học phí cho con thứ 3.<br>+ Giảm 15% học phí cho con thứ 4 trở đi.<br>(Áp dụng cho học sinh đóng phí cùng thời điểm).' },
+                    { code: 'VAĐH7', name: 'Dành cho Phụ huynh giới thiệu thành công Học sinh mới đăng ký học', desc: '+ Giảm 5% học phí 1 học phần: khi giới thiệu thành công 2 học sinh<br>+ Giảm 7% học phí 1 học phần: khi giới thiệu thành công 3 học sinh trở lên<br>(Tính trên học phí của học sinh được giới thiệu, ưu đãi được cấn trừ vào học phí học phần tiếp theo của Học sinh/ Phụ huynh giới thiệu)' },
+                    { code: 'VAĐH8', name: 'VA Plus Card / VA Privilege Card / VA Elite Card', desc: '- Ưu đãi 10% phí đồng phục, SGK.<br>- Ưu đãi 15% học phí khóa Hè.<br>- Ưu đãi 15% học phí CLB ngoài giờ.<br>- Ưu đãi dịch vụ tại hệ thống đối tác liên kết của VA Schools.' }
                 ]
             },
             'um': {
                 title: '2. ƯƠM MẦM (Chồi - Lớp 1)',
                 color: 'var(--color-um)',
                 items: [
-                    { code: 'VAUM13', name: 'Chuyển cấp', desc: 'Ưu đãi 20% học phí chính khóa khi lên lớp 1.' },
-                    { code: 'VAUM1', name: 'Đăng ký Nhóm', desc: 'Nhóm 3 (5%) - Nhóm 7 (10%) học phí.' },
-                    { code: 'VAUM2', name: 'Học bổng Tiếng Anh', desc: 'Tặng khóa học hè Tiếng Anh trị giá 3.000.000đ.' },
-                    { code: 'VAUM3', name: 'Hành trang vào lớp 1', desc: 'Miễn phí khóa học tiền tiểu học 4 tuần.' },
-                    { code: 'VAUM4', name: 'CLB Năng khiếu', desc: 'Tặng 1 voucher CLB ngoại khóa bất kỳ.' },
-                    // ... Thêm các mục giả lập khác để đủ số lượng nếu cần
-                    { code: 'VAUM...', name: 'Chính sách khác...', desc: 'Đang cập nhật chi tiết...' }
+                    { code: 'VAUM1', name: 'Chính sách đăng ký nhóm', desc: '+ Nhóm 5 Phụ Huynh: giảm 5% học phí năm đầu tiên/học sinh<br>+ Nhóm 7 Phụ Huynh: giảm 7% học phí năm đầu tiên/học sinh<br>+ Nhóm 10 Phụ Huynh: giảm 10% học phí năm đầu tiên/học sinh' },
+                    { code: 'VAUM2', name: 'Ưu đãi Sự kiện & Thẻ Đồng Hành', desc: 'Phụ huynh tham dự các sự kiện Open Day hoặc School Tour và đóng học phí ít nhất 01 học phần trong thời hạn 15 ngày kể từ ngày tổ chức sự kiện Open Day hoặc School Tour:<br>1. Tặng thẻ VA Schools đồng hành được sử dụng như sau:<br>- Sử dụng để thanh toán các khoản: phí nhập học, phí BHYT, phí đồng phục, phí sách.<br>- Sử dụng tham gia các khóa đào tạo giáo dục/ tâm lý/ nuôi dạy trẻ.<br>- Sử dụng để giảm học phí khi đăng ký khóa đào tạo kỹ năng sống ngoài giờ.<br>- Sử dụng để giảm chi phí tham gia các hoạt động ngoại khóa (không nằm trong chương trình đào tạo).<br>- Các chương trình, khóa đào tạo nội bộ phát sinh khác trong năm (nếu có) phục vụ cho công tác đào tạo và giáo dục của hệ thống.<br>- Không có giá trị quy đổi thành tiền mặt.<br>2. Tặng thêm học phí 2 tuần khóa hè nếu đăng ký và đóng phí tại ngày sự kiện<br>- Ưu đãi không quy đổi tiền mặt<br>- Không cấn trừ vào học phí chính khóa và không chuyển nhượng.<br>- Chỉ áp dụng cho học sinh TH, THCS, THPT.' },
+                    { code: 'VAUM3', name: 'Chính sách "Gắn kết": Ưu đãi học phí theo năm học tại VA Schools', desc: '+ 01 năm: giảm 10% &nbsp;&nbsp;&nbsp; + 02 năm: giảm 10.5%<br>+ 03 năm: giảm 11% &nbsp;&nbsp;&nbsp; + 04 năm: giảm 12%<br>+ 05 năm: giảm 12.5% &nbsp;&nbsp;&nbsp; + 06 năm: giảm 13%<br>+ 07 năm: giảm 13.5% &nbsp;&nbsp;&nbsp; + 08 năm: giảm 14.5%<br>+ 09 năm: giảm 15% &nbsp;&nbsp;&nbsp; + =>10 năm: giảm 15.5%<br>(không áp dụng đồng thời với chính sách VAUM4 và VAUM5)' },
+                    { code: 'VAUM4', name: 'Đóng phí cả năm 2026-2027', desc: 'Phụ Huynh đóng học phí chính khóa cả năm 2026-2027:<br>+ Giảm 8% học phí khi đóng đến hết 31/03/2026<br>+ Giảm 7% học phí khi đóng đến hết 30/04/2026<br>+ Giảm 6.5% học phí khi đóng đến hết 31/05/2026<br>+ Giảm 5.5% học phí khi đóng đến hết 30/06/2026<br>+ Giảm 5% học phí khi đóng đến hết 31/07/2026<br>Phụ huynh đóng học phí ít nhất 4 tuần khóa hè:<br>+ Tặng 1.000.000 đồng được cấn trừ vào học phí chính khóa, không quy đổi tiền mặt' },
+                    { code: 'VAUM5', name: 'Đóng phí theo học phần', desc: 'Phụ Huynh đóng học phí từ 02 học phần trở lên đến hết thời hạn đóng phí theo học phần gần nhất năm học 2026-2027:<br>+ Giảm 3% học phí thực đóng (không áp dụng đồng thời với chính sách VAUM4)' },
+                    { code: 'VAUM6', name: 'Anh chị em ruột', desc: 'Phụ huynh có từ 02 con trở lên (là Anh, Chị, Em ruột) học cùng hệ thống VAschools:<br>+ Giảm 5% học phí cho con thứ 2<br>+ Giảm 7% học phí cho con thứ 3 trở lên' },
+                    { code: 'VAUM7', name: 'Dành cho Phụ huynh giới thiệu thành công Học sinh mới đăng ký học', desc: '+ Giảm 5% học phí 1 học phần: khi giới thiệu thành công 2 học sinh<br>+ Giảm 7% học phí 1 học phần: khi giới thiệu thành công 3 học sinh trở lên<br>(Tính trên học phí của học sinh được giới thiệu, ưu đãi được cấn trừ vào học phí học phần tiếp theo của Học sinh/ Phụ huynh giới thiệu)' },
+                    { code: 'VAUM8', name: 'VA Plus Card / VA Privilege Card / VA Elite Card', desc: '- Ưu đãi 10% phí đồng phục, SGK.<br>- Ưu đãi 15% học phí khóa Hè.<br>- Ưu đãi 15% học phí CLB ngoài giờ.<br>- Ưu đãi dịch vụ tại hệ thống đối tác liên kết của VA Schools.' },
+                    { code: 'VAUM9', name: 'Học sinh Lá VA Phú Định/Vĩnh Hội/Hạnh Thông lên L1 của VA Phú Định/Thông Tây Hội', desc: '+ Giảm 15% học phí năm học Lớp 1.<br>+ Giảm 10% học phí năm học Lớp 2.<br>+ Giảm 5% học phí năm học Lớp 3.<br>+ Miễn phí xe trung chuyển bậc Tiểu học (áp dụng số lượng đăng ký tối thiểu 05 học sinh).' },
+                    { code: 'VAUM10', name: 'Chính sách "Phát triển"', desc: '+ Giảm 5% học phí VA Tân Bình.<br>+ Giảm 27,5% học phí VA Phú Định và VA Thông Tây Hội.' },
+                    { code: 'VAUM11', name: 'Học bổng học sinh tài năng "Talent Honor Awards"', desc: '- Gold: Học bổng 100% học phí chính khóa và Hè. (2 suất/cấp học/cơ sở trường)<br>- Silver: Học bổng 50% học phí chính khóa và 100% Hè. (3 suất/cấp học/cơ sở trường)<br>- Bronze: Học bổng 30% học phí chính khóa và 50% Hè. (5 suất/cấp học/cơ sở trường)' },
+                    { code: 'VAUM12', name: 'Học bổng học sinh VA tài năng "VA Scholars"', desc: '- Merit: Học bổng 100% học phí chính khóa. (2 suất/cấp học/cơ sở trường)<br>- Leadership: Học bổng 60% học phí chính khóa. (3 suất/cấp học/cơ sở trường)<br>- Wisdom: Học bổng 30% học phí chính khóa. (3 suất/cấp học/cơ sở trường)<br>- Excellence: Học bổng 20% học phí chính khóa. (1 suất/khối học/cơ sở trường)<br>- Achiever: Học bổng 10% học phí chính khóa. (1 suất/khối học/cơ sở trường)' },
+                    { code: 'VAUM13', name: 'Ưu đãi học sinh chuyển cấp', desc: '- Ưu đãi 20% học phí chính khóa.' }
                 ]
             },
             'km': {
                 title: '3. KHAI MỞ (Lớp 2 - Lớp 6)',
                 color: 'var(--color-km)',
                 items: [
-                    { code: 'VAKM10', name: 'Chuyển cấp Lớp 6', desc: 'Ưu đãi 20% học phí chính khóa.' },
-                    { code: 'VAKM1', name: 'Đăng ký Nhóm', desc: 'Nhóm 3 (5%), Nhóm 5 (7%), Nhóm 7 (10%).' },
-                    { code: 'VAKM2', name: 'Học bổng Tài năng', desc: 'Học bổng 30-50-100% dựa trên kết quả kiểm tra đầu vào.' },
-                    { code: 'VAKM3', name: 'Cam kết đầu ra', desc: 'Cam kết chứng chỉ Cambridge Starter/Mover/Flyer.' },
-                    { code: 'VAKM4', name: 'Trại hè Công nghệ', desc: 'Giảm 50% phí tham gia trại hè STEM/Robotics.' }
+                    { code: 'VAKM1', name: 'Chính sách đăng ký nhóm', desc: '+ Nhóm 5 Phụ Huynh: giảm 5% học phí năm đầu tiên/học sinh<br>+ Nhóm 7 Phụ Huynh: giảm 7% học phí năm đầu tiên/học sinh<br>+ Nhóm 10 Phụ Huynh: giảm 10% học phí năm đầu tiên/học sinh' },
+                    { code: 'VAKM2', name: 'Ưu đãi Sự kiện & Thẻ Đồng Hành', desc: 'Phụ huynh tham dự các sự kiện Open Day hoặc School Tour và đóng học phí ít nhất 01 học phần trong thời hạn 15 ngày kể từ ngày tổ chức sự kiện Open Day hoặc School Tour:<br>1. Tặng thẻ VA Schools đồng hành được sử dụng như sau:<br>- Sử dụng để thanh toán các khoản: phí nhập học, phí BHYT, phí đồng phục, phí sách.<br>- Sử dụng tham gia các khóa đào tạo giáo dục/ tâm lý/ nuôi dạy trẻ.<br>- Sử dụng để giảm học phí khi đăng ký khóa đào tạo kỹ năng sống ngoài giờ.<br>- Sử dụng để giảm chi phí tham gia các hoạt động ngoại khóa (không nằm trong chương trình đào tạo).<br>- Các chương trình, khóa đào tạo nội bộ phát sinh khác trong năm (nếu có) phục vụ cho công tác đào tạo và giáo dục của hệ thống.<br>- Không có giá trị quy đổi thành tiền mặt.<br>2. Tặng thêm học phí 2 tuần khóa hè nếu đăng ký và đóng phí tại ngày sự kiện<br>- Ưu đãi không quy đổi tiền mặt<br>- Không cấn trừ vào học phí chính khóa và không chuyển nhượng.<br>- Chỉ áp dụng cho học sinh TH, THCS, THPT.' },
+                    { code: 'VAKM3', name: 'Chính sách "Gắn kết": Ưu đãi học phí theo năm học tại VA Schools', desc: '+ 01 năm: giảm 10% &nbsp;&nbsp;&nbsp; + 02 năm: giảm 10.5%<br>+ 03 năm: giảm 11% &nbsp;&nbsp;&nbsp; + 04 năm: giảm 12%<br>+ 05 năm: giảm 12.5% &nbsp;&nbsp;&nbsp; + 06 năm: giảm 13%<br>+ 07 năm: giảm 13.5% &nbsp;&nbsp;&nbsp; + 08 năm: giảm 14.5%<br>+ 09 năm: giảm 15% &nbsp;&nbsp;&nbsp; + =>10 năm: giảm 15.5%<br>(không áp dụng đồng thời với chính sách VAKM4 và VAKM5)' },
+                    { code: 'VAKM4', name: 'Đóng phí cả năm 2026-2027', desc: 'Phụ Huynh đóng học phí chính khóa cả năm 2026-2027:<br>+ Giảm 8% học phí khi đóng đến hết 31/03/2026<br>+ Giảm 7% học phí khi đóng đến hết 30/04/2026<br>+ Giảm 6.5% học phí khi đóng đến hết 31/05/2026<br>+ Giảm 5.5% học phí khi đóng đến hết 30/06/2026<br>+ Giảm 5% học phí khi đóng đến hết 31/07/2026<br>Phụ huynh đóng học phí ít nhất 4 tuần khóa hè:<br>+ Tặng 1.000.000 đồng được cấn trừ vào học phí chính khóa, không quy đổi tiền mặt' },
+                    { code: 'VAKM5', name: 'Đóng phí theo học phần', desc: 'Phụ Huynh đóng học phí từ 02 học phần trở lên đến hết thời hạn đóng phí theo học phần gần nhất năm học 2026-2027:<br>+ Giảm 3% học phí thực đóng (không áp dụng đồng thời với chính sách VAKM4)' },
+                    { code: 'VAKM6', name: 'Anh chị em ruột', desc: 'Phụ huynh có từ 02 con trở lên (là Anh, Chị, Em ruột) học cùng hệ thống VAschools:<br>+ Giảm 5% học phí cho con thứ 2<br>+ Giảm 7% học phí cho con thứ 3 trở lên' },
+                    { code: 'VAKM7', name: 'Dành cho Phụ huynh giới thiệu thành công Học sinh mới đăng ký học', desc: '+ Giảm 5% học phí 1 học phần: khi giới thiệu thành công 2 học sinh<br>+ Giảm 7% học phí 1 học phần: khi giới thiệu thành công 3 học sinh trở lên<br>(Tính trên học phí của học sinh được giới thiệu, ưu đãi được cấn trừ vào học phí học phần tiếp theo của Học sinh/ Phụ huynh giới thiệu)' },
+                    { code: 'VAKM8', name: 'Học bổng học sinh tài năng "Talent Honor Awards"', desc: '- Gold: Học bổng 100% học phí chính khóa và Hè. (2 suất/cấp học/cơ sở trường)<br>- Silver: Học bổng 50% học phí chính khóa và 100% Hè. (3 suất/cấp học/cơ sở trường)<br>- Bronze: Học bổng 30% học phí chính khóa và 50% Hè. (5 suất/cấp học/cơ sở trường)' },
+                    { code: 'VAKM9', name: 'Học bổng học sinh VA tài năng "VA Scholars"', desc: '- Merit: Học bổng 100% học phí chính khóa. (2 suất/cấp học/cơ sở trường)<br>- Leadership: Học bổng 60% học phí chính khóa. (3 suất/cấp học/cơ sở trường)<br>- Wisdom: Học bổng 30% học phí chính khóa. (3 suất/cấp học/cơ sở trường)<br>- Excellence: Học bổng 20% học phí chính khóa. (1 suất/khối học/cơ sở trường)<br>- Achiever: Học bổng 10% học phí chính khóa. (1 suất/khối học/cơ sở trường)' },
+                    { code: 'VAKM10', name: 'Ưu đãi học sinh VA chuyển cấp', desc: '- Ưu đãi 20% học phí chính khóa.' },
+                    { code: 'VAKM11', name: 'VA Plus Card / VA Privilege Card / VA Elite Card', desc: '- Ưu đãi 10% phí đồng phục, SGK.<br>- Ưu đãi 15% học phí khóa Hè.<br>- Ưu đãi 15% học phí CLB ngoài giờ.<br>- Ưu đãi dịch vụ tại hệ thống đối tác liên kết của VA Schools.' },
+                    { code: 'VAKM12', name: 'Ưu đãi học sinh VA Phú Định/Thông Tây Hội chuyển cấp L5 lên L6 tại VA Bình Thới/Tân Bình', desc: '+ Giảm 15% học phí năm học Lớp 6.<br>+ Miễn phí xe trung chuyển bậc THCS (áp dụng số lượng đăng ký tối thiểu 05 học sinh).' }
                 ]
             },
             'ht': {
                 title: '4. HÀNH TRANG (Lớp 7 - Lớp 10)',
                 color: 'var(--color-ht)',
                 items: [
-                    { code: 'VAHT12', name: 'Học bổng IELTS', desc: '20 suất học bổng trị giá 100.000.000đ luyện thi IELTS.' },
-                    { code: 'VAHT13', name: 'Tân Bình -> Bình Thới', desc: 'Giảm 15% học phí + Miễn phí Bus tuyến cố định.' },
-                    { code: 'VAHT1', name: 'Học sinh Giỏi cấp Quận', desc: 'Giảm 30% học phí kỳ I cho HS đạt giải.' },
-                    { code: 'VAHT2', name: 'Hỗ trợ laptop', desc: 'Hỗ trợ mua laptop học tập trả góp lãi suất 0%.' }
+                    { code: 'VAHT1', name: 'Chính sách đăng ký nhóm', desc: '+ Nhóm 5 Phụ Huynh: giảm 5% học phí năm đầu tiên/học sinh<br>+ Nhóm 7 Phụ Huynh: giảm 7% học phí năm đầu tiên/học sinh<br>+ Nhóm 10 Phụ Huynh: giảm 10% học phí năm đầu tiên/học sinh' },
+                    { code: 'VAHT2', name: 'Ưu đãi Sự kiện & Thẻ Đồng Hành', desc: 'Phụ huynh tham dự các sự kiện Open Day hoặc School Tour và đóng học phí ít nhất 01 học phần trong thời hạn 15 ngày kể từ ngày tổ chức sự kiện Open Day hoặc School Tour:<br>+ Tặng thẻ VA Schools đồng hành được sử dụng như sau:<br>- Sử dụng để thanh toán các khoản: phí nhập học, phí BHYT, phí đồng phục, phí sách.<br>- Sử dụng tham gia các khóa đào tạo giáo dục/ tâm lý/ nuôi dạy trẻ.<br>- Sử dụng để giảm học phí khi đăng ký khóa đào tạo kỹ năng sống ngoài giờ.<br>- Sử dụng để giảm chi phí tham gia các hoạt động ngoại khóa (không nằm trong chương trình đào tạo).<br>- Các chương trình, khóa đào tạo nội bộ phát sinh khác trong năm (nếu có) phục vụ cho công tác đào tạo và giáo dục của hệ thống.<br>- Không có giá trị quy đổi thành tiền mặt.<br>2. Tặng thêm học phí 2 tuần khóa hè nếu đăng ký và đóng phí tại ngày sự kiện<br>- Ưu đãi không quy đổi tiền mặt<br>- Không cấn trừ vào học phí chính khóa và không chuyển nhượng.<br>- Chỉ áp dụng cho học sinh TH, THCS, THPT.' },
+                    { code: 'VAHT3', name: 'Chính sách "Gắn kết": Ưu đãi học phí theo năm học tại VA Schools', desc: '+ 01 năm: giảm 10% &nbsp;&nbsp;&nbsp; + 02 năm: giảm 10.5%<br>+ 03 năm: giảm 11% &nbsp;&nbsp;&nbsp; + 04 năm: giảm 12%<br>+ 05 năm: giảm 12.5% &nbsp;&nbsp;&nbsp; + 06 năm: giảm 13%<br>+ 07 năm: giảm 13.5% &nbsp;&nbsp;&nbsp; + 08 năm: giảm 14.5%<br>+ 09 năm: giảm 15% &nbsp;&nbsp;&nbsp; + =>10 năm: giảm 15.5%<br>(không áp dụng đồng thời với chính sách VAHT4 và VAHT5)' },
+                    { code: 'VAHT4', name: 'Đóng phí cả năm 2026-2027', desc: 'Phụ Huynh đóng học phí chính khóa cả năm 2026-2027:<br>+ Giảm 8% học phí khi đóng đến hết 31/03/2026<br>+ Giảm 7% học phí khi đóng đến hết 30/04/2026<br>+ Giảm 6.5% học phí khi đóng đến hết 31/05/2026<br>+ Giảm 5.5% học phí khi đóng đến hết 30/06/2026<br>+ Giảm 5% học phí khi đóng đến hết 31/07/2026<br>Phụ huynh đóng học phí ít nhất 4 tuần khóa hè:<br>+ Tặng 1.000.000 đồng được cấn trừ vào học phí chính khóa, không quy đổi tiền mặt' },
+                    { code: 'VAHT5', name: 'Đóng phí theo học phần', desc: 'Phụ Huynh đóng học phí từ 02 học phần trở lên đến hết thời hạn đóng phí theo học phần gần nhất năm học 2026-2027:<br>+ Giảm 3% học phí thực đóng (không áp dụng đồng thời với chính sách VAHT4)' },
+                    { code: 'VAHT6', name: 'Anh chị em ruột', desc: 'Phụ huynh có từ 02 con trở lên (là Anh, Chị, Em ruột) học cùng hệ thống VAschools:<br>+ Giảm 5% học phí cho con thứ 2<br>+ Giảm 7% học phí cho con thứ 3 trở lên' },
+                    { code: 'VAHT7', name: 'Dành cho Phụ huynh giới thiệu thành công Học sinh mới đăng ký học', desc: '+ Giảm 5% học phí 1 học phần: khi giới thiệu thành công 2 học sinh<br>+ Giảm 7% học phí 1 học phần: khi giới thiệu thành công 3 học sinh trở lên<br>(Tính trên học phí của học sinh được giới thiệu, ưu đãi được cấn trừ vào học phí học phần tiếp theo của Học sinh/ Phụ huynh giới thiệu)' },
+                    { code: 'VAHT8', name: 'Học bổng học sinh tài năng "Talent Honor Awards"', desc: '- Gold: Học bổng 100% học phí chính khóa và Hè. (2 suất/cấp học/cơ sở trường)<br>- Silver: Học bổng 50% học phí chính khóa và 100% Hè. (3 suất/cấp học/cơ sở trường)<br>- Bronze: Học bổng 30% học phí chính khóa và 50% Hè. (5 suất/cấp học/cơ sở trường)' },
+                    { code: 'VAHT9', name: 'Học bổng học sinh VA tài năng "VA Scholars"', desc: '- Merit: Học bổng 100% học phí chính khóa. (2 suất/cấp học/cơ sở trường)<br>- Leadership: Học bổng 60% học phí chính khóa. (3 suất/cấp học/cơ sở trường)<br>- Wisdom: Học bổng 30% học phí chính khóa. (3 suất/cấp học/cơ sở trường)<br>- Excellence: Học bổng 20% học phí chính khóa. (1 suất/khối học/cơ sở trường)<br>- Achiever: Học bổng 10% học phí chính khóa. (1 suất/khối học/cơ sở trường)' },
+                    { code: 'VAHT10', name: 'Ưu đãi học sinh chuyển cấp', desc: '- Ưu đãi 20% học phí chính khóa.' },
+                    { code: 'VAHT11', name: 'VA Plus Card / VA Privilege Card / VA Elite Card', desc: '- Ưu đãi 10% phí đồng phục, SGK.<br>- Ưu đãi 15% học phí khóa Hè.<br>- Ưu đãi 15% học phí CLB ngoài giờ.<br>- Ưu đãi dịch vụ tại hệ thống đối tác liên kết của VA Schools.' },
+                    { code: 'VAHT12', name: 'Học bổng IELTS 6.5+', desc: '- Số lượng: 20 suất<br>- Trị giá: 100,000,000 đồng/suất' },
+                    { code: 'VAHT13', name: 'Ưu đãi học sinh VA Tân Bình chuyển cấp L9 lên L10 tại VA Bình Thới', desc: '+ Giảm 15% học phí năm học Lớp 10.<br>+ Miễn phí xe trung chuyển bậc THPT (áp dụng số lượng đăng ký tối thiểu 05 học sinh).' }
                 ]
             },
             'cc': {
                 title: '5. CHẤP CÁNH (Lớp 11 - Lớp 12)',
                 color: 'var(--color-cc)',
                 items: [
-                    { code: 'VACC11', name: 'Hỗ trợ ĐH/CĐ', desc: 'Hỗ trợ 100% phí hồ sơ du học các trường đối tác.' },
-                    { code: 'VACC8', name: 'Talent Honor', desc: 'Học bổng Tài năng Gold (100%), Silver (50%), Bronze (30%).' },
-                    { code: 'VACC1', name: 'Luyện thi Đại học', desc: 'Miễn phí các lớp tăng cường buổi tối.' },
-                    { code: 'VACC2', name: 'Hướng nghiệp 1:1', desc: 'Tư vấn chuyên sâu cùng chuyên gia.' }
+                    { code: 'VACC1', name: 'Chính sách đăng ký nhóm', desc: '+ Nhóm 5 Phụ Huynh: giảm 5% học phí năm đầu tiên/học sinh<br>+ Nhóm 7 Phụ Huynh: giảm 7% học phí năm đầu tiên/học sinh<br>+ Nhóm 10 Phụ Huynh: giảm 10% học phí năm đầu tiên/học sinh' },
+                    { code: 'VACC2', name: 'Ưu đãi Sự kiện & Thẻ Đồng Hành', desc: 'Phụ huynh tham dự các sự kiện Open Day hoặc School Tour và đóng học phí ít nhất 01 học phần trong thời hạn 15 ngày kể từ ngày tổ chức sự kiện Open Day hoặc School Tour:<br>+ Tặng thẻ VA Schools đồng hành được sử dụng như sau:<br>- Sử dụng để thanh toán các khoản: phí nhập học, phí BHYT, phí đồng phục, phí sách.<br>- Sử dụng tham gia các khóa đào tạo giáo dục/ tâm lý/ nuôi dạy trẻ.<br>- Sử dụng để giảm học phí khi đăng ký khóa đào tạo kỹ năng sống ngoài giờ.<br>- Sử dụng để giảm chi phí tham gia các hoạt động ngoại khóa (không nằm trong chương trình đào tạo).<br>- Các chương trình, khóa đào tạo nội bộ phát sinh khác trong năm (nếu có) phục vụ cho công tác đào tạo và giáo dục của hệ thống.<br>- Không có giá trị quy đổi thành tiền mặt.<br>2. Tặng thêm học phí 2 tuần khóa hè nếu đăng ký và đóng phí tại ngày sự kiện<br>- Ưu đãi không quy đổi tiền mặt<br>- Không cấn trừ vào học phí chính khóa và không chuyển nhượng.<br>- Chỉ áp dụng cho học sinh TH, THCS, THPT.' },
+                    { code: 'VACC3', name: 'Chính sách "Gắn kết": Ưu đãi học phí theo năm học tại VA Schools', desc: '+ 01 năm: giảm 10% &nbsp;&nbsp;&nbsp; + 02 năm: giảm 10.5%<br>+ 03 năm: giảm 11% &nbsp;&nbsp;&nbsp; + 04 năm: giảm 12%<br>+ 05 năm: giảm 12.5% &nbsp;&nbsp;&nbsp; + 06 năm: giảm 13%<br>+ 07 năm: giảm 13.5% &nbsp;&nbsp;&nbsp; + 08 năm: giảm 14.5%<br>+ 09 năm: giảm 15% &nbsp;&nbsp;&nbsp; + =>10 năm: giảm 15.5%<br>(không áp dụng đồng thời với chính sách VACC4 và VACC5)' },
+                    { code: 'VACC4', name: 'Đóng phí cả năm 2026-2027', desc: 'Phụ Huynh đóng học phí chính khóa cả năm 2026-2027:<br>+ Giảm 8% học phí khi đóng đến hết 31/03/2026<br>+ Giảm 7% học phí khi đóng đến hết 30/04/2026<br>+ Giảm 6.5% học phí khi đóng đến hết 31/05/2026<br>+ Giảm 5.5% học phí khi đóng đến hết 30/06/2026<br>+ Giảm 5% học phí khi đóng đến hết 31/07/2026<br>Phụ huynh đóng học phí ít nhất 4 tuần khóa hè:<br>+ Tặng 1.000.000 đồng được cấn trừ vào học phí chính khóa, không quy đổi tiền mặt' },
+                    { code: 'VACC5', name: 'Đóng phí theo học phần', desc: 'Phụ Huynh đóng học phí từ 02 học phần trở lên đến hết thời hạn đóng phí theo học phần gần nhất năm học 2026-2027:<br>+ Giảm 3% học phí thực đóng (không áp dụng đồng thời với chính sách VACC4)' },
+                    { code: 'VACC6', name: 'Anh chị em ruột', desc: 'Phụ huynh có từ 02 con trở lên (là Anh, Chị, Em ruột) học cùng hệ thống VAschools:<br>+ Giảm 5% học phí cho con thứ 2<br>+ Giảm 7% học phí cho con thứ 3 trở lên' },
+                    { code: 'VACC7', name: 'Dành cho Phụ huynh giới thiệu thành công Học sinh mới đăng ký học', desc: '+ Giảm 5% học phí 1 học phần: khi giới thiệu thành công 2 học sinh<br>+ Giảm 7% học phí 1 học phần: khi giới thiệu thành công 3 học sinh trở lên<br>(Tính trên học phí của học sinh được giới thiệu, ưu đãi được cấn trừ vào học phí học phần tiếp theo của Học sinh/ Phụ huynh giới thiệu)' },
+                    { code: 'VACC8', name: 'Học bổng học sinh tài năng "Talent Honor Awards"', desc: '- Gold: Học bổng 100% học phí chính khóa và Hè. (2 suất/cấp học/cơ sở trường)<br>- Silver: Học bổng 50% học phí chính khóa và 100% Hè. (3 suất/cấp học/cơ sở trường)<br>- Bronze: Học bổng 30% học phí chính khóa và 50% Hè. (5 suất/cấp học/cơ sở trường)' },
+                    { code: 'VACC9', name: 'Học bổng học sinh VA tài năng "VA Scholars"', desc: '- Merit: Học bổng 100% học phí chính khóa. (2 suất/cấp học/cơ sở trường)<br>- Leadership: Học bổng 60% học phí chính khóa. (3 suất/cấp học/cơ sở trường)<br>- Wisdom: Học bổng 30% học phí chính khóa. (3 suất/cấp học/cơ sở trường)<br>- Excellence: Học bổng 20% học phí chính khóa. (1 suất/khối học/cơ sở trường)<br>- Achiever: Học bổng 10% học phí chính khóa. (1 suất/khối học/cơ sở trường)' },
+                    { code: 'VACC10', name: 'VA Plus Card / VA Privilege Card / VA Elite Card', desc: '- Ưu đãi 10% phí đồng phục, SGK.<br>- Ưu đãi 15% học phí khóa Hè.<br>- Ưu đãi 15% học phí CLB ngoài giờ.<br>- Ưu đãi dịch vụ tại hệ thống đối tác liên kết của VA Schools.' },
+                    { code: 'VACC11', name: 'Hỗ trợ phí nhập học', desc: 'Hỗ trợ phí nhập học tại các đại học, cao đẳng liên kết của VA trong và ngoài nước.' }
                 ]
             },
             'kol': {
                 title: '6. KOC/KOL (Truyền thông)',
                 color: 'var(--color-kol)',
                 items: [
-                    { code: 'VAKOL1', name: 'Đại Sứ Thương Hiệu', desc: 'Học bổng 100% cho con KOLs cam kết độc quyền hình ảnh.' },
-                    { code: 'VAKOL2', name: 'Content Creator', desc: 'Giảm 30-50% cho KOC sản xuất video review định kỳ.' },
-                    { code: 'VAKOL3', name: 'Check-in Lan tỏa', desc: 'Tặng voucher 500k khi phụ huynh check-in sự kiện công khai.' }
+                    { code: 'VAKOC1', name: 'Đại sứ phụ huynh', desc: 'Ưu đãi thêm 10%-20% học phí cộng gộp vào các chương trình ưu đãi hiện hữu.' },
+                    { code: 'VAKOL1', name: 'Đại sứ sáng tạo', desc: 'Ưu đãi 30%-50% học phí chính khóa, 50% học phí khóa Hè và 50% phí dã ngoại.' },
+                    { code: 'VAKOL2', name: 'Đại sứ sáng tạo', desc: 'Ưu đãi 60%-80% học phí chính khóa, 100% học phí khóa Hè và 100% phí dã ngoại.' }
                 ]
             },
             'gov': {
                 title: '7. CƠ QUAN BAN NGÀNH',
                 color: 'var(--color-gov)',
                 items: [
-                    { code: 'VAGOV1', name: 'Cán Bộ Địa Phương', desc: 'Giảm 20% trọn đời cấp học cho con CBNV UBND Quận/Phường.' },
-                    { code: 'VAGOV2', name: 'Ngành Giáo Dục', desc: 'Giảm 15% cho con Giáo viên/Cán bộ Sở GD&ĐT.' },
-                    { code: 'VAGOV3', name: 'Lực lượng vũ trang', desc: 'Giảm 10% cho con Công an/Bộ đội tại địa bàn.' }
+                    { code: 'VAGOV1', name: 'Bí thư', desc: 'Ưu đãi 50% học phí cho con và cháu ruột của Bí thư.' },
+                    { code: 'VAGOV2', name: 'Chủ tịch', desc: 'Ưu đãi 40% học phí cho con và cháu ruột của Chủ tịch.' },
+                    { code: 'VAGOV3', name: 'Trưởng/Phó phòng', desc: 'Ưu đãi 30% học phí cho con và cháu ruột của Trưởng/Phó phòng.' },
+                    { code: 'VAGOV4', name: 'Chuyên viên', desc: 'Ưu đãi 20% học phí cho con và cháu ruột của chuyên viên.' }
                 ]
             }
         };
@@ -474,7 +507,7 @@
                             <h4 class="font-bold text-gray-900 text-sm">${item.name}</h4>
                             <span class="text-[10px] font-mono bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded">${item.code}</span>
                         </div>
-                        <p class="text-sm text-gray-600 mt-1">${item.desc}</p>
+                        <p class="text-sm text-gray-600 mt-1 leading-relaxed">${item.desc}</p>
                     </div>
                 `;
             });

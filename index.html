@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VA Schools | Dashboard Chiến Lược 2026-2030 (v7.3)</title>
+    <title>VA Schools | Dashboard Chiến Lược 2026-2030 (v7.5)</title>
     
     <!-- Thư viện -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -62,7 +62,7 @@
             <button onclick="enterApp()" class="group relative px-10 py-4 bg-[#9a0036] text-white rounded-full font-bold text-lg shadow-xl hover:bg-white hover:text-[#9a0036] border-2 border-[#9a0036] transition-all duration-300 transform hover:-translate-y-1">
                 <span class="flex items-center"><i class="fas fa-book-open mr-3"></i> TRUY CẬP ĐỀ ÁN</span>
             </button>
-            <p class="mt-12 text-xs text-gray-400 italic">Hệ thống quản trị chiến lược nội bộ (v7.3)</p>
+            <p class="mt-12 text-xs text-gray-400 italic">Hệ thống quản trị chiến lược nội bộ (v7.5)</p>
         </div>
     </div>
 
@@ -75,7 +75,7 @@
                     <h1 class="text-lg font-bold text-[#9a0036] uppercase tracking-wide hidden md:block border-l-2 border-gray-300 pl-4 ml-1">Chiến Lược 2026-2030</h1>
                 </div>
                 <div class="flex items-center gap-3">
-                    <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200 flex items-center"><i class="fas fa-check-circle mr-1"></i> Bản Chính Thức (v7.3)</span>
+                    <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200 flex items-center"><i class="fas fa-check-circle mr-1"></i> Bản Chính Thức (v7.5)</span>
                     <button class="p-2 hover:bg-gray-100 rounded-full text-gray-500"><i class="fas fa-bars"></i></button>
                 </div>
             </div>
@@ -166,7 +166,6 @@
                         <h3 class="font-bold text-gray-800 group-hover:text-[#9a0036] transition-colors relative z-10">Chính Sách & Ưu Đãi</h3>
                         <p class="text-xs text-gray-500 mt-1 relative z-10">Chi tiết 5 giá trị cốt lõi</p>
                     </a>
-                    <!-- NEW LINK: ROADMAP -->
                     <a href="roadmap.html" class="block bg-white p-5 rounded-xl shadow-sm border border-gray-100 hover:border-[#9a0036] hover:shadow-lg transition-all group relative overflow-hidden">
                         <div class="absolute right-0 top-0 w-16 h-16 bg-purple-50 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
                         <div class="flex justify-between items-start mb-3 relative z-10">
@@ -186,16 +185,15 @@
                         <span class="w-1.5 h-8 bg-[#9a0036] mr-4 rounded-full"></span>So Sánh Phương Án Biểu Phí
                     </h2>
                     
-                    <!-- NEW BUTTON ADDED HERE -->
                     <a href="fees.html" class="flex items-center text-sm font-bold text-[#9a0036] hover:bg-rose-50 px-4 py-2 rounded-lg border border-[#9a0036] transition-colors">
                         <i class="fas fa-table mr-2"></i> Xem bảng chi tiết 12 khối lớp
                     </a>
                 </div>
                 
                 <div class="flex space-x-6 mb-8">
-                    <button onclick="updateChart(1)" id="tab-1" class="tab-btn pb-2 text-sm font-medium text-gray-500 hover:text-[#9a0036] border-b-2 border-transparent transition-all">PA1: Thận Trọng</button>
-                    <button onclick="updateChart(2)" id="tab-2" class="tab-btn pb-2 text-sm font-medium text-gray-500 hover:text-[#9a0036] border-b-2 border-transparent transition-all">PA2: Tăng Trưởng Nóng</button>
-                    <button onclick="updateChart(3)" id="tab-3" class="tab-btn active pb-2 text-sm font-medium text-gray-500 hover:text-[#9a0036] border-b-2 border-transparent transition-all">PA3: Cân Bằng (Đề Xuất)</button>
+                    <button onclick="updateChart(1)" id="tab-1" class="tab-btn pb-2 text-sm font-medium text-gray-500 hover:text-[#9a0036] border-b-2 border-transparent transition-all">Phương Án 1</button>
+                    <button onclick="updateChart(2)" id="tab-2" class="tab-btn pb-2 text-sm font-medium text-gray-500 hover:text-[#9a0036] border-b-2 border-transparent transition-all">Phương Án 2</button>
+                    <button onclick="updateChart(3)" id="tab-3" class="tab-btn active pb-2 text-sm font-medium text-gray-500 hover:text-[#9a0036] border-b-2 border-transparent transition-all">Phương Án 3 (Đề Xuất)</button>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
                     <div class="lg:col-span-4">
@@ -204,8 +202,9 @@
                                 <i class="fas fa-search-dollar text-[#9a0036] mr-3 mt-1 text-xl"></i>
                                 <div>
                                     <h4 class="text-[#9a0036] font-bold text-lg mb-2 serif">Nhận định Chiến lược:</h4>
-                                    <p id="insight-text" class="text-gray-800 text-sm leading-relaxed">Điểm đánh giá: 93/100. Tỷ trọng doanh thu từ HS hiện hữu cao nhất. Giảm áp lực tuyển mới. Phù hợp định hướng bền vững.</p>
-                                    <div id="pa3-badge" class="mt-4 pt-4 border-t border-rose-200 text-xs font-bold text-[#9a0036] uppercase flex items-center"><i class="fas fa-check-circle mr-2"></i> Đề xuất chọn PA3</div>
+                                    <!-- Insight text is populated by JS -->
+                                    <p id="insight-text" class="text-gray-800 text-sm leading-relaxed"></p>
+                                    <div id="pa3-badge" class="mt-4 pt-4 border-t border-rose-200 text-xs font-bold text-[#9a0036] uppercase flex items-center"><i class="fas fa-check-circle mr-2"></i> 👉 Đề xuất chọn PA3</div>
                                 </div>
                             </div>
                         </div>
@@ -258,10 +257,29 @@
         }
 
         let feeChart;
+        // Updated insights as per request with HTML highlighting
         const feeData = {
-            1: { insight: "Nhận định PA1 (An Toàn): Đảm bảo tăng trưởng doanh thu an toàn nhưng chưa khai thác tối đa giá trị tệp học sinh hiện hữu.", current: [64.8, 88.4, 104.1, 131.5, 165.0], new: [71.8, 97.5, 114.0, 144.5, 181.2], color: '#3b82f6', isRecommended: false },
-            2: { insight: "Nhận định PA2 (Tăng trưởng nóng): Cải thiện rõ khả năng giữ học sinh, tuy nhiên vẫn còn phụ thuộc nhất định vào nguồn tuyển mới.", current: [64.8, 88.4, 104.1, 131.5, 165.0], new: [95.9, 95.9, 95.9, 138.9, 176.9], color: '#f59e0b', isRecommended: false },
-            3: { insight: "Điểm đánh giá: 93/100. Tỷ trọng doanh thu từ HS hiện hữu cao nhất. Giảm áp lực tuyển mới. Phù hợp định hướng bền vững.", current: [64.8, 88.4, 104.1, 131.5, 165.0], new: [84.7, 84.7, 103.4, 138.9, 176.9], color: '#9a0036', isRecommended: true }
+            1: { 
+                insight: "<strong class='text-gray-900'>Nhận định:</strong> Đảm bảo tăng trưởng doanh thu an toàn nhưng chưa khai thác tối đa giá trị tệp học sinh hiện hữu.<br><br><strong class='text-gray-900'>Điểm đánh giá:</strong> <span class='text-xl text-blue-600 font-bold'>83/100</span>.", 
+                current: [64.8, 88.4, 104.1, 131.5, 165.0], 
+                new: [71.8, 97.5, 114.0, 144.5, 181.2], 
+                color: '#3b82f6', 
+                isRecommended: false 
+            },
+            2: { 
+                insight: "<strong class='text-gray-900'>Nhận định:</strong> Cải thiện rõ khả năng giữ học sinh, tuy nhiên vẫn còn phụ thuộc nhất định vào nguồn tuyển mới.<br><br><strong class='text-gray-900'>Điểm đánh giá:</strong> <span class='text-xl text-amber-600 font-bold'>87/100</span>.", 
+                current: [64.8, 88.4, 104.1, 131.5, 165.0], 
+                new: [95.9, 95.9, 95.9, 138.9, 176.9], 
+                color: '#f59e0b', 
+                isRecommended: false 
+            },
+            3: { 
+                insight: "<strong class='text-gray-900'>Điểm đánh giá:</strong> <span class='text-2xl text-[#9a0036] font-bold'>93/100</span>.<br><br><strong class='text-gray-900'>Nhận định:</strong> Tỷ trọng doanh thu từ học sinh hiện hữu cao nhất. Giảm đáng kể áp lực tuyển sinh mới hàng năm. Phù hợp định hướng phát triển chiều sâu, nâng cao giá trị và vị thế thương hiệu.", 
+                current: [64.8, 88.4, 104.1, 131.5, 165.0], 
+                new: [84.7, 84.7, 103.4, 138.9, 176.9], 
+                color: '#9a0036', 
+                isRecommended: true 
+            }
         };
 
         function initChart() {
@@ -280,7 +298,10 @@
             const activeBtn = document.getElementById(`tab-${paId}`);
             activeBtn.classList.add('active'); activeBtn.style.borderColor = '#9a0036'; activeBtn.style.color = '#9a0036';
             const data = feeData[paId];
-            document.getElementById('insight-text').innerText = data.insight;
+            
+            // Use innerHTML instead of innerText to render HTML tags
+            document.getElementById('insight-text').innerHTML = data.insight;
+            
             const badge = document.getElementById('pa3-badge');
             badge.style.display = data.isRecommended ? 'flex' : 'none';
             if (feeChart) { feeChart.data.datasets[1].data = data.new; feeChart.data.datasets[1].label = `Đề xuất PA${paId}`; feeChart.data.datasets[1].backgroundColor = data.color; feeChart.update(); }
